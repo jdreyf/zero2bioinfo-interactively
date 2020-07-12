@@ -1,0 +1,12 @@
+name: zero2bioinfo-interactively
+title: zero2bioinfo-interactively
+username:
+account: jdreyf
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2561428
+bundleId: 3381225
+url: https://jdreyf.shinyapps.io/zero2bioinfo-interactively/
+when: 1594515524.14304
+asMultiple: FALSE
+asStatic: FALSE
