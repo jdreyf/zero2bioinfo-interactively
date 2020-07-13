@@ -5,8 +5,8 @@ account: jdreyf
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2561428
-bundleId: 3381225
+bundleId: 3383133
 url: https://jdreyf.shinyapps.io/zero2bioinfo-interactively/
-when: 1594515524.14304
+when: 1594576952.79066
 asMultiple: FALSE
 asStatic: FALSE

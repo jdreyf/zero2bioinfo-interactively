@@ -127,6 +127,9 @@ $(document).ready(function () {
 <h3>Goal of tutorial</h3>
 <p>Programming looks intimidating, but once you understand the basics, you should be able to Google questions, understand the answers, and be productive. I’ll try to teach as much of the basics as I can in the hour I have to present this tutorial. You may wish to come back to it later to refresh and practice.</p>
 </div>
+</div>
+<div id="section-r-rstudio" class="section level2">
+<h2>R &amp; RStudio</h2>
 <div id="section-r" class="section level3">
 <h3>R</h3>
 <ul>
@@ -201,6 +204,7 @@ print(n) # displays the variable</code></pre>
 <pre><code>[1] 4</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<p>You can modify the code below to, say, <code>n=5</code> and you can see the output change when you press on the button <code>Run code</code>. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable’s value in R, the value will remain changed.</p>
 <div class="tutorial-exercise" data-label="Numeric1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>n = 4 #does the same thing.  &#39;&lt;-&#39; is usually equivalent to &#39;=&#39;.
 n #same as print() when not in loop or function</code></pre>
@@ -763,9 +767,18 @@ str(d) #1st column is now character</code></pre>
  $ num        : int  1 2</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-We can also prevent R from turning characters into factors by setting a global option
+<p>We can also prevent R from turning characters into factors by setting a global option</p>
+<div class="tutorial-exercise" data-label="Factors1_5" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>options(&quot;stringsAsFactors&quot;)</code></pre>
+<pre><code>$stringsAsFactors
+[1] FALSE</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
 <div class="tutorial-exercise" data-label="Factors2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>options(stringsAsFactors=FALSE) #applies to the rest of your session</code></pre>
+<pre class="text"><code>options(stringsAsFactors=FALSE) #applies to the rest of your session
+options(&quot;stringsAsFactors&quot;)</code></pre>
+<pre><code>$stringsAsFactors
+[1] FALSE</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Factors3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -905,13 +918,15 @@ pheno</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="ds22" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code># make random gene symbols: don&#39;t worry about how i generate these
-annot &lt;- data.frame(gene.symbols=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
+annot &lt;- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
-                                        sample(x=LETTERS, size=100, replace=TRUE)))
+                                        sample(x=LETTERS, size=100, replace=TRUE)),
+                    pathway=sample(x=c(&quot;oxphos&quot;, &quot;glycolysis&quot;, &quot;tca cycle&quot;, &quot;none&quot;), 
+                                   size=nrow(gx), replace=TRUE))
 annot</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["gene.symbols"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"HJN"},{"1":"FYA"},{"1":"WOJ"},{"1":"YUF"},{"1":"XQU"},{"1":"RTB"},{"1":"UAN"},{"1":"SGD"},{"1":"OFP"},{"1":"RDO"},{"1":"JXH"},{"1":"YMW"},{"1":"TUX"},{"1":"PEC"},{"1":"KHK"},{"1":"FZR"},{"1":"KFJ"},{"1":"LZK"},{"1":"ZQR"},{"1":"ZTD"},{"1":"TWT"},{"1":"IJY"},{"1":"VOP"},{"1":"IYM"},{"1":"FHT"},{"1":"CKY"},{"1":"VCA"},{"1":"LYP"},{"1":"ZMB"},{"1":"ZVZ"},{"1":"RUD"},{"1":"CBV"},{"1":"QNN"},{"1":"TXF"},{"1":"ZGP"},{"1":"ZEU"},{"1":"HDR"},{"1":"TOZ"},{"1":"MBY"},{"1":"HYB"},{"1":"KGY"},{"1":"XHE"},{"1":"VAR"},{"1":"OHE"},{"1":"DIT"},{"1":"HKY"},{"1":"TOJ"},{"1":"RHV"},{"1":"HQB"},{"1":"MRV"},{"1":"LPY"},{"1":"IXO"},{"1":"IOI"},{"1":"OVV"},{"1":"VVJ"},{"1":"NEU"},{"1":"YBX"},{"1":"GSN"},{"1":"NGT"},{"1":"VIH"},{"1":"UOB"},{"1":"UOS"},{"1":"QIX"},{"1":"KZM"},{"1":"COK"},{"1":"OOU"},{"1":"LOI"},{"1":"YCB"},{"1":"BRI"},{"1":"SDK"},{"1":"PUH"},{"1":"THX"},{"1":"MWF"},{"1":"XTD"},{"1":"TQJ"},{"1":"MPI"},{"1":"FFL"},{"1":"ROG"},{"1":"CSB"},{"1":"PMM"},{"1":"VFK"},{"1":"KOG"},{"1":"RXE"},{"1":"BJI"},{"1":"DSJ"},{"1":"WKC"},{"1":"WZK"},{"1":"PKB"},{"1":"ACI"},{"1":"POG"},{"1":"JDQ"},{"1":"ZLX"},{"1":"DRX"},{"1":"JIU"},{"1":"WSU"},{"1":"OUM"},{"1":"WBJ"},{"1":"MZJ"},{"1":"GIN"},{"1":"NZC"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["symbol"],"name":[1],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"HJN","2":"glycolysis"},{"1":"FYA","2":"glycolysis"},{"1":"WOJ","2":"glycolysis"},{"1":"YUF","2":"none"},{"1":"XQU","2":"oxphos"},{"1":"RTB","2":"none"},{"1":"UAN","2":"none"},{"1":"SGD","2":"tca cycle"},{"1":"OFP","2":"glycolysis"},{"1":"RDO","2":"none"},{"1":"JXH","2":"tca cycle"},{"1":"YMW","2":"tca cycle"},{"1":"TUX","2":"tca cycle"},{"1":"PEC","2":"glycolysis"},{"1":"KHK","2":"tca cycle"},{"1":"FZR","2":"oxphos"},{"1":"KFJ","2":"glycolysis"},{"1":"LZK","2":"none"},{"1":"ZQR","2":"oxphos"},{"1":"ZTD","2":"oxphos"},{"1":"TWT","2":"tca cycle"},{"1":"IJY","2":"oxphos"},{"1":"VOP","2":"glycolysis"},{"1":"IYM","2":"oxphos"},{"1":"FHT","2":"glycolysis"},{"1":"CKY","2":"glycolysis"},{"1":"VCA","2":"oxphos"},{"1":"LYP","2":"none"},{"1":"ZMB","2":"tca cycle"},{"1":"ZVZ","2":"none"},{"1":"RUD","2":"none"},{"1":"CBV","2":"tca cycle"},{"1":"QNN","2":"glycolysis"},{"1":"TXF","2":"glycolysis"},{"1":"ZGP","2":"oxphos"},{"1":"ZEU","2":"none"},{"1":"HDR","2":"tca cycle"},{"1":"TOZ","2":"none"},{"1":"MBY","2":"tca cycle"},{"1":"HYB","2":"none"},{"1":"KGY","2":"glycolysis"},{"1":"XHE","2":"none"},{"1":"VAR","2":"tca cycle"},{"1":"OHE","2":"oxphos"},{"1":"DIT","2":"glycolysis"},{"1":"HKY","2":"none"},{"1":"TOJ","2":"oxphos"},{"1":"RHV","2":"none"},{"1":"HQB","2":"oxphos"},{"1":"MRV","2":"oxphos"},{"1":"LPY","2":"none"},{"1":"IXO","2":"none"},{"1":"IOI","2":"none"},{"1":"OVV","2":"oxphos"},{"1":"VVJ","2":"none"},{"1":"NEU","2":"oxphos"},{"1":"YBX","2":"none"},{"1":"GSN","2":"oxphos"},{"1":"NGT","2":"glycolysis"},{"1":"VIH","2":"glycolysis"},{"1":"UOB","2":"oxphos"},{"1":"UOS","2":"tca cycle"},{"1":"QIX","2":"oxphos"},{"1":"KZM","2":"oxphos"},{"1":"COK","2":"oxphos"},{"1":"OOU","2":"glycolysis"},{"1":"LOI","2":"none"},{"1":"YCB","2":"tca cycle"},{"1":"BRI","2":"oxphos"},{"1":"SDK","2":"glycolysis"},{"1":"PUH","2":"none"},{"1":"THX","2":"none"},{"1":"MWF","2":"tca cycle"},{"1":"XTD","2":"oxphos"},{"1":"TQJ","2":"oxphos"},{"1":"MPI","2":"glycolysis"},{"1":"FFL","2":"none"},{"1":"ROG","2":"oxphos"},{"1":"CSB","2":"glycolysis"},{"1":"PMM","2":"oxphos"},{"1":"VFK","2":"tca cycle"},{"1":"KOG","2":"tca cycle"},{"1":"RXE","2":"glycolysis"},{"1":"BJI","2":"glycolysis"},{"1":"DSJ","2":"glycolysis"},{"1":"WKC","2":"glycolysis"},{"1":"WZK","2":"oxphos"},{"1":"PKB","2":"none"},{"1":"ACI","2":"glycolysis"},{"1":"POG","2":"oxphos"},{"1":"JDQ","2":"tca cycle"},{"1":"ZLX","2":"tca cycle"},{"1":"DRX","2":"tca cycle"},{"1":"JIU","2":"tca cycle"},{"1":"WSU","2":"glycolysis"},{"1":"OUM","2":"glycolysis"},{"1":"WBJ","2":"glycolysis"},{"1":"MZJ","2":"none"},{"1":"GIN","2":"none"},{"1":"NZC","2":"glycolysis"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
@@ -921,7 +936,7 @@ annot</code></pre>
 annot</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["gene.symbols"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"VIT","_rn_":"gene1"},{"1":"VWC","_rn_":"gene2"},{"1":"NNZ","_rn_":"gene3"},{"1":"HZB","_rn_":"gene4"},{"1":"MLG","_rn_":"gene5"},{"1":"DNK","_rn_":"gene6"},{"1":"CTE","_rn_":"gene7"},{"1":"VKG","_rn_":"gene8"},{"1":"LLR","_rn_":"gene9"},{"1":"CXM","_rn_":"gene10"},{"1":"WUU","_rn_":"gene11"},{"1":"CPK","_rn_":"gene12"},{"1":"MIK","_rn_":"gene13"},{"1":"ZNE","_rn_":"gene14"},{"1":"TKS","_rn_":"gene15"},{"1":"YYH","_rn_":"gene16"},{"1":"INQ","_rn_":"gene17"},{"1":"COK","_rn_":"gene18"},{"1":"QGO","_rn_":"gene19"},{"1":"ZHR","_rn_":"gene20"},{"1":"VBN","_rn_":"gene21"},{"1":"NPE","_rn_":"gene22"},{"1":"YNE","_rn_":"gene23"},{"1":"HRV","_rn_":"gene24"},{"1":"KBR","_rn_":"gene25"},{"1":"XSH","_rn_":"gene26"},{"1":"VVJ","_rn_":"gene27"},{"1":"VJS","_rn_":"gene28"},{"1":"ILM","_rn_":"gene29"},{"1":"XXK","_rn_":"gene30"},{"1":"CKF","_rn_":"gene31"},{"1":"PER","_rn_":"gene32"},{"1":"SAM","_rn_":"gene33"},{"1":"PLO","_rn_":"gene34"},{"1":"FLS","_rn_":"gene35"},{"1":"HCJ","_rn_":"gene36"},{"1":"SZU","_rn_":"gene37"},{"1":"EOR","_rn_":"gene38"},{"1":"NSX","_rn_":"gene39"},{"1":"MLR","_rn_":"gene40"},{"1":"ILN","_rn_":"gene41"},{"1":"MKG","_rn_":"gene42"},{"1":"HIE","_rn_":"gene43"},{"1":"LZD","_rn_":"gene44"},{"1":"TGN","_rn_":"gene45"},{"1":"IOR","_rn_":"gene46"},{"1":"PVP","_rn_":"gene47"},{"1":"IUU","_rn_":"gene48"},{"1":"JEW","_rn_":"gene49"},{"1":"VCV","_rn_":"gene50"},{"1":"OFI","_rn_":"gene51"},{"1":"EFJ","_rn_":"gene52"},{"1":"QJJ","_rn_":"gene53"},{"1":"UCT","_rn_":"gene54"},{"1":"VMO","_rn_":"gene55"},{"1":"TKN","_rn_":"gene56"},{"1":"ITP","_rn_":"gene57"},{"1":"ZRY","_rn_":"gene58"},{"1":"POI","_rn_":"gene59"},{"1":"GNG","_rn_":"gene60"},{"1":"YQQ","_rn_":"gene61"},{"1":"MXT","_rn_":"gene62"},{"1":"ZLW","_rn_":"gene63"},{"1":"PIF","_rn_":"gene64"},{"1":"ZPK","_rn_":"gene65"},{"1":"YCT","_rn_":"gene66"},{"1":"WYS","_rn_":"gene67"},{"1":"CXH","_rn_":"gene68"},{"1":"BOD","_rn_":"gene69"},{"1":"BIW","_rn_":"gene70"},{"1":"YGI","_rn_":"gene71"},{"1":"LIX","_rn_":"gene72"},{"1":"VRJ","_rn_":"gene73"},{"1":"YGG","_rn_":"gene74"},{"1":"GWI","_rn_":"gene75"},{"1":"SLN","_rn_":"gene76"},{"1":"NVT","_rn_":"gene77"},{"1":"BDX","_rn_":"gene78"},{"1":"NIQ","_rn_":"gene79"},{"1":"DRB","_rn_":"gene80"},{"1":"JRU","_rn_":"gene81"},{"1":"EUM","_rn_":"gene82"},{"1":"DTZ","_rn_":"gene83"},{"1":"RCL","_rn_":"gene84"},{"1":"DCE","_rn_":"gene85"},{"1":"SCL","_rn_":"gene86"},{"1":"SVR","_rn_":"gene87"},{"1":"HEZ","_rn_":"gene88"},{"1":"WBA","_rn_":"gene89"},{"1":"MDX","_rn_":"gene90"},{"1":"VFG","_rn_":"gene91"},{"1":"BYS","_rn_":"gene92"},{"1":"UPO","_rn_":"gene93"},{"1":"EKR","_rn_":"gene94"},{"1":"MWM","_rn_":"gene95"},{"1":"LHS","_rn_":"gene96"},{"1":"RLL","_rn_":"gene97"},{"1":"LUB","_rn_":"gene98"},{"1":"YBI","_rn_":"gene99"},{"1":"LTO","_rn_":"gene100"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["symbol"],"name":[1],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"EUM","2":"oxphos","_rn_":"gene1"},{"1":"DTZ","2":"tca cycle","_rn_":"gene2"},{"1":"RCL","2":"tca cycle","_rn_":"gene3"},{"1":"DCE","2":"none","_rn_":"gene4"},{"1":"SCL","2":"glycolysis","_rn_":"gene5"},{"1":"SVR","2":"tca cycle","_rn_":"gene6"},{"1":"HEZ","2":"tca cycle","_rn_":"gene7"},{"1":"WBA","2":"none","_rn_":"gene8"},{"1":"MDX","2":"tca cycle","_rn_":"gene9"},{"1":"VFG","2":"oxphos","_rn_":"gene10"},{"1":"BYS","2":"none","_rn_":"gene11"},{"1":"UPO","2":"glycolysis","_rn_":"gene12"},{"1":"EKR","2":"oxphos","_rn_":"gene13"},{"1":"MWM","2":"oxphos","_rn_":"gene14"},{"1":"LHS","2":"tca cycle","_rn_":"gene15"},{"1":"RLL","2":"none","_rn_":"gene16"},{"1":"LUB","2":"none","_rn_":"gene17"},{"1":"YBI","2":"oxphos","_rn_":"gene18"},{"1":"LTO","2":"tca cycle","_rn_":"gene19"},{"1":"ITX","2":"oxphos","_rn_":"gene20"},{"1":"WCM","2":"glycolysis","_rn_":"gene21"},{"1":"NZJ","2":"none","_rn_":"gene22"},{"1":"ZBA","2":"none","_rn_":"gene23"},{"1":"LGT","2":"tca cycle","_rn_":"gene24"},{"1":"NKO","2":"glycolysis","_rn_":"gene25"},{"1":"TEV","2":"glycolysis","_rn_":"gene26"},{"1":"KGX","2":"tca cycle","_rn_":"gene27"},{"1":"LRE","2":"glycolysis","_rn_":"gene28"},{"1":"XMC","2":"none","_rn_":"gene29"},{"1":"UUP","2":"oxphos","_rn_":"gene30"},{"1":"PKR","2":"tca cycle","_rn_":"gene31"},{"1":"IKW","2":"tca cycle","_rn_":"gene32"},{"1":"NED","2":"tca cycle","_rn_":"gene33"},{"1":"KSQ","2":"none","_rn_":"gene34"},{"1":"YHC","2":"none","_rn_":"gene35"},{"1":"NQE","2":"none","_rn_":"gene36"},{"1":"OKU","2":"glycolysis","_rn_":"gene37"},{"1":"GOG","2":"oxphos","_rn_":"gene38"},{"1":"HRX","2":"tca cycle","_rn_":"gene39"},{"1":"BNQ","2":"glycolysis","_rn_":"gene40"},{"1":"PEJ","2":"tca cycle","_rn_":"gene41"},{"1":"NEQ","2":"none","_rn_":"gene42"},{"1":"RVB","2":"tca cycle","_rn_":"gene43"},{"1":"BRN","2":"glycolysis","_rn_":"gene44"},{"1":"SHP","2":"oxphos","_rn_":"gene45"},{"1":"VJN","2":"oxphos","_rn_":"gene46"},{"1":"JSC","2":"glycolysis","_rn_":"gene47"},{"1":"LMX","2":"none","_rn_":"gene48"},{"1":"XKA","2":"none","_rn_":"gene49"},{"1":"KFA","2":"glycolysis","_rn_":"gene50"},{"1":"ERE","2":"glycolysis","_rn_":"gene51"},{"1":"AMB","2":"tca cycle","_rn_":"gene52"},{"1":"LON","2":"tca cycle","_rn_":"gene53"},{"1":"LSJ","2":"oxphos","_rn_":"gene54"},{"1":"CJJ","2":"none","_rn_":"gene55"},{"1":"ZUP","2":"oxphos","_rn_":"gene56"},{"1":"ORX","2":"none","_rn_":"gene57"},{"1":"SXK","2":"glycolysis","_rn_":"gene58"},{"1":"LRP","2":"oxphos","_rn_":"gene59"},{"1":"LNS","2":"glycolysis","_rn_":"gene60"},{"1":"KGP","2":"tca cycle","_rn_":"gene61"},{"1":"IEX","2":"none","_rn_":"gene62"},{"1":"ZDD","2":"glycolysis","_rn_":"gene63"},{"1":"GNE","2":"tca cycle","_rn_":"gene64"},{"1":"ORQ","2":"oxphos","_rn_":"gene65"},{"1":"VPZ","2":"none","_rn_":"gene66"},{"1":"UUJ","2":"glycolysis","_rn_":"gene67"},{"1":"EWE","2":"oxphos","_rn_":"gene68"},{"1":"CVB","2":"none","_rn_":"gene69"},{"1":"FIP","2":"none","_rn_":"gene70"},{"1":"FJK","2":"tca cycle","_rn_":"gene71"},{"1":"JJL","2":"oxphos","_rn_":"gene72"},{"1":"CTU","2":"none","_rn_":"gene73"},{"1":"MOI","2":"none","_rn_":"gene74"},{"1":"KNG","2":"none","_rn_":"gene75"},{"1":"TPO","2":"tca cycle","_rn_":"gene76"},{"1":"RYD","2":"none","_rn_":"gene77"},{"1":"OIG","2":"none","_rn_":"gene78"},{"1":"NGB","2":"tca cycle","_rn_":"gene79"},{"1":"QQQ","2":"glycolysis","_rn_":"gene80"},{"1":"XTW","2":"glycolysis","_rn_":"gene81"},{"1":"LWI","2":"oxphos","_rn_":"gene82"},{"1":"IFW","2":"tca cycle","_rn_":"gene83"},{"1":"PKR","2":"oxphos","_rn_":"gene84"},{"1":"CTU","2":"oxphos","_rn_":"gene85"},{"1":"YSX","2":"tca cycle","_rn_":"gene86"},{"1":"XHZ","2":"oxphos","_rn_":"gene87"},{"1":"ODJ","2":"glycolysis","_rn_":"gene88"},{"1":"IWL","2":"tca cycle","_rn_":"gene89"},{"1":"GIB","2":"tca cycle","_rn_":"gene90"},{"1":"IXQ","2":"tca cycle","_rn_":"gene91"},{"1":"RJI","2":"oxphos","_rn_":"gene92"},{"1":"GGB","2":"none","_rn_":"gene93"},{"1":"WIA","2":"glycolysis","_rn_":"gene94"},{"1":"LNY","2":"tca cycle","_rn_":"gene95"},{"1":"VTK","2":"tca cycle","_rn_":"gene96"},{"1":"DXV","2":"tca cycle","_rn_":"gene97"},{"1":"IQN","2":"none","_rn_":"gene98"},{"1":"RBM","2":"tca cycle","_rn_":"gene99"},{"1":"RUU","2":"oxphos","_rn_":"gene100"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
@@ -937,18 +952,34 @@ We’re going to write &amp; read from the working directory. R assumes by defau
 </div>
 We can change working directory with <code>setwd()</code> or under Session/Set Working Directory. Usually we write to tab-delimited text (TXT) or comma separated value (CSV). Both can be opened in Excel, and Excel can save as both formats.
 <div class="tutorial-exercise" data-label="write" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>write.csv(gx, &quot;gx.csv&quot;) #now look in your working directory for the file</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<pre class="text"><code>write.csv(gx, &quot;gx.csv&quot;) #now look in your working directory for the file
+
+#tables are read in by default as data frames
+gx &lt;- read.csv(&quot;gx.csv&quot;, row.names=1) #row.names=1 sets 1st column as rownames
+gx[1:5,]</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["a2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["a3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["b1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["b2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["b3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["c1"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["c2"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["c3"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"4.2629543","2":"3.7818592","3":"1.9542823","4":"-0.1244350","5":"-0.3900096","6":"-0.6263682","7":"-1.6878010","8":"0.5812010","9":"-1.4240317","_rn_":"gene1"},{"1":"-0.3262334","2":"-0.7767766","3":"-0.8962113","4":"1.4667446","5":"-1.8192222","6":"0.4813353","7":"0.6476460","8":"0.3792931","9":"-1.6693444","_rn_":"gene2"},{"1":"1.3297993","2":"-0.6159899","3":"1.2693872","4":"0.6739287","5":"0.6591807","6":"1.6952711","7":"0.4487942","8":"-0.3107409","9":"1.3792361","_rn_":"gene3"},{"1":"1.2724293","2":"0.0465803","3":"0.5938409","4":"1.9564253","5":"0.4596217","6":"-1.7612263","7":"1.0263022","8":"0.8863900","9":"-0.9196746","_rn_":"gene4"},{"1":"0.4146414","2":"-1.1303858","3":"0.7756343","4":"-0.2690410","5":"1.6166263","6":"0.1980130","7":"1.0749782","8":"-1.6418647","9":"-0.5044900","_rn_":"gene5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<pre><code>## [1] &quot;B:/fcns/zero2bioinfo-interactively&quot;</code></pre>
-<div class="tutorial-exercise" data-label="write1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>#tables are read in by default as data frames
-gx &lt;- read.csv(&quot;gx.csv&quot;, row.names=1) #row.names=1 sets 1st column as rownames</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="write2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>#transform gx from data.frame to a numeric matrix
-gx &lt;- data.matrix(gx)</code></pre>
+gx &lt;- as.matrix(gx)
+gx[1:5,]</code></pre>
+<pre><code>              a1         a2         a3         b1         b2         b3
+gene1  4.2629543  3.7818592  1.9542823 -0.1244350 -0.3900096 -0.6263682
+gene2 -0.3262334 -0.7767766 -0.8962113  1.4667446 -1.8192222  0.4813353
+gene3  1.3297993 -0.6159899  1.2693872  0.6739287  0.6591807  1.6952711
+gene4  1.2724293  0.0465803  0.5938409  1.9564253  0.4596217 -1.7612263
+gene5  0.4146414 -1.1303858  0.7756343 -0.2690410  1.6166263  0.1980130
+              c1         c2         c3
+gene1 -1.6878010  0.5812010 -1.4240317
+gene2  0.6476460  0.3792931 -1.6693444
+gene3  0.4487942 -0.3107409  1.3792361
+gene4  1.0263022  0.8863900 -0.9196746
+gene5  1.0749782 -1.6418647 -0.5044900</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 </div>
@@ -967,7 +998,7 @@ Can see in R Studio in bottom right <em>Plots</em> tab
 <img src="zero2bioinfo-interactively_files/figure-html/hist-1.png" width="624" />
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-Most basic is <code>plot()</code> so we’ll practice with this.
+<p>Most basic is <code>plot()</code></p>
 <div class="tutorial-exercise" data-label="scatter" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>plot(x=gx[,1], y=gx[,2]) #scatter plot of a1 vs a2</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/scatter-1.png" width="624" />
@@ -1004,16 +1035,25 @@ We also want to reorient axis tick labels on y-axis.
 We can use “Export” in <em>Plots</em> tab, or we can use code to open file, plot to it, then close it. We’ll make a PDF with <code>pdf</code> function but we could use <code>png</code>, <code>jpeg</code>, <code>tiff</code>, etc. Our PDF is at <a href="./scatter.pdf">scatter.pdf</a>.
 <div class="tutorial-exercise" data-label="plot4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>pdf(&quot;scatter.pdf&quot;) #open graphics device
-
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
-
 dev.off() #close graphics device</code></pre>
 <pre><code>png 
   2 </code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-<pre><code>## png 
-##   2</code></pre>
+</div>
+<div id="section-ggplot2" class="section level3">
+<h3>ggplot2</h3>
+<code>ggplot2</code> is commonly used graphics package that makes pretty plots.
+<div class="tutorial-exercise" data-label="ggplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>library(ggplot2)
+qp &lt;- qplot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], color=annot$pathway)
+ggsave(filename = &quot;gg_scatter.pdf&quot;, plot=qp)</code></pre>
+<pre><code>Saving 6.5 x 4 in image</code></pre>
+<pre class="text"><code>qp</code></pre>
+<img src="zero2bioinfo-interactively_files/figure-html/ggplot-1.png" width="624" />
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
 </div>
 </div>
 <div id="section-differential-expression-analysis" class="section level2">
@@ -1133,11 +1173,11 @@ toptab[1:5,]</code></pre>
 </div>
 <p><code>toptab</code> is ordered by overall significance of the 3 tests. We round the number of significant digits in <code>toptab</code> to 3 with <code>signif</code>. When we add annotation, we make sure the rows of <code>toptab</code> match the rows of <code>annot</code> using <code>annot[rownames(toptab),]</code>. We write this to <a href="./diff_gene_stats.csv">diff_gene_stats.csv</a>.</p>
 <div class="tutorial-exercise" data-label="ezlimma2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>toptab.ann &lt;- data.frame(signif(toptab, 3), symbol=annot[rownames(toptab),])
+<pre class="text"><code>toptab.ann &lt;- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 toptab.ann[1:5,]</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a.avg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["b.avg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["c.avg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AvsB.p"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["AvsB.FDR"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AvsB.logFC"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["AvsB.FC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AvsC.p"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["AvsC.FDR"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["AvsC.logFC"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["AvsC.FC"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["BvsC.p"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BvsC.FDR"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BvsC.logFC"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BvsC.FC"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["symbol"],"name":[16],"type":["chr"],"align":["left"]}],"data":[{"1":"3.330","2":"-0.380","3":"-0.844","4":"3.54e-05","5":"0.00354","6":"3.71","7":"13.10","8":"6.01e-06","9":"0.000601","10":"4.1800","11":"18.10","12":"0.55700","13":"0.883","14":"0.463","15":"1.38","16":"VIT","_rn_":"gene1"},{"1":"-1.700","2":"-0.313","3":"0.849","4":"7.66e-02","5":"0.76900","6":"-1.38","7":"-2.61","8":"1.93e-03","9":"0.096700","10":"-2.5400","11":"-5.83","12":"0.13400","13":"0.769","14":"-1.160","15":"-2.24","16":"TGN","_rn_":"gene45"},{"1":"-0.154","2":"1.190","3":"-1.240","4":"7.93e-02","5":"0.76900","6":"-1.34","7":"-2.54","8":"1.52e-01","9":"0.923000","10":"1.0900","11":"2.12","12":"0.00244","13":"0.244","14":"2.430","15":"5.38","16":"COK","_rn_":"gene18"},{"1":"0.813","2":"0.583","3":"-1.160","4":"7.54e-01","5":"0.91200","6":"0.23","7":"1.17","8":"1.09e-02","9":"0.362000","10":"1.9700","11":"3.91","12":"0.02310","13":"0.577","14":"1.740","15":"3.34","16":"VVJ","_rn_":"gene27"},{"1":"1.150","2":"-0.750","3":"1.220","4":"1.72e-02","5":"0.39700","6":"1.90","7":"3.74","8":"9.34e-01","9":"0.953000","10":"-0.0632","11":"-1.04","12":"0.01410","13":"0.577","14":"-1.970","15":"-3.91","16":"YCT","_rn_":"gene66"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a.avg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["b.avg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["c.avg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AvsB.p"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["AvsB.FDR"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AvsB.logFC"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["AvsB.FC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AvsC.p"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["AvsC.FDR"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["AvsC.logFC"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["AvsC.FC"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["BvsC.p"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BvsC.FDR"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BvsC.logFC"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BvsC.FC"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["symbol"],"name":[16],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[17],"type":["chr"],"align":["left"]}],"data":[{"1":"3.330","2":"-0.380","3":"-0.844","4":"3.54e-05","5":"0.00354","6":"3.71","7":"13.10","8":"6.01e-06","9":"0.000601","10":"4.1800","11":"18.10","12":"0.55700","13":"0.883","14":"0.463","15":"1.38","16":"EUM","17":"oxphos","_rn_":"gene1"},{"1":"-1.700","2":"-0.313","3":"0.849","4":"7.66e-02","5":"0.76900","6":"-1.38","7":"-2.61","8":"1.93e-03","9":"0.096700","10":"-2.5400","11":"-5.83","12":"0.13400","13":"0.769","14":"-1.160","15":"-2.24","16":"SHP","17":"oxphos","_rn_":"gene45"},{"1":"-0.154","2":"1.190","3":"-1.240","4":"7.93e-02","5":"0.76900","6":"-1.34","7":"-2.54","8":"1.52e-01","9":"0.923000","10":"1.0900","11":"2.12","12":"0.00244","13":"0.244","14":"2.430","15":"5.38","16":"YBI","17":"oxphos","_rn_":"gene18"},{"1":"0.813","2":"0.583","3":"-1.160","4":"7.54e-01","5":"0.91200","6":"0.23","7":"1.17","8":"1.09e-02","9":"0.362000","10":"1.9700","11":"3.91","12":"0.02310","13":"0.577","14":"1.740","15":"3.34","16":"KGX","17":"tca cycle","_rn_":"gene27"},{"1":"1.150","2":"-0.750","3":"1.220","4":"1.72e-02","5":"0.39700","6":"1.90","7":"3.74","8":"9.34e-01","9":"0.953000","10":"-0.0632","11":"-1.04","12":"0.01410","13":"0.577","14":"-1.970","15":"-3.91","16":"VPZ","17":"none","_rn_":"gene66"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
@@ -1284,7 +1324,8 @@ We can plot the top gene, gene27, vs. <code>Y</code>.
 <h3>Significance histograms</h3>
 We make a histogram of p-values and false discovery rates (FDR) for each comparison, at <a href="./signif_hist.pdf">signif_hist.pdf</a>.
 <div class="tutorial-exercise" data-label="elplot2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>signif_hist(tab = toptab)</code></pre>
+<pre class="text"><code>signif_hist(tab = toptab, name = NA)</code></pre>
+<img src="zero2bioinfo-interactively_files/figure-html/elplot2-1.png" width="624" /><img src="zero2bioinfo-interactively_files/figure-html/elplot2-2.png" width="624" />
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 </div>
@@ -1302,12 +1343,9 @@ We can see how many genes with p &lt;= 0.05 the comparisons have in common.
 <h3>Heatmap</h3>
 We can make a heatmap of the top genes in <code>toptab.ann</code>.
 <div class="tutorial-exercise" data-label="elplot4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>top.genes &lt;- rownames(toptab.ann)[1:10]</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise" data-label="elplot04" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, &quot;symbol&quot;], pheno.df = pheno, name=NA)</code></pre>
-<img src="zero2bioinfo-interactively_files/figure-html/elplot04-1.png" width="624" />
+<pre class="text"><code>top.genes &lt;- rownames(toptab.ann)[1:10]
+ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, &quot;symbol&quot;], pheno.df = pheno, name=NA)</code></pre>
+<img src="zero2bioinfo-interactively_files/figure-html/elplot4-1.png" width="624" />
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 <p>By default, the row scaling <em>centers</em> the rows by subtracting the row mean. Then the new mean of every row is zero. This helps see contrast between samples, instead of between rows.</p>
@@ -1336,12 +1374,13 @@ options(repos = BiocManager::repositories())
 library(limma)
 library(ezlimma)
 library(ezlimmaplot)
+library(ggplot2)
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::register_http_handlers(session, metadata = list(version = "0.0.1.9992"))
+learnr:::register_http_handlers(session, metadata = list(version = "0.0.1.9993"))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -1925,6 +1964,13 @@ output$`tutorial-exercise-Factors-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-Factors1_5-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-Factors1_5-code-editor`)), session)
+output$`tutorial-exercise-Factors1_5-output` <- renderUI({
+  `tutorial-exercise-Factors1_5-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-Factors2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-Factors2-code-editor`)), session)
 output$`tutorial-exercise-Factors2-output` <- renderUI({
   `tutorial-exercise-Factors2-result`()
@@ -2044,13 +2090,6 @@ output$`tutorial-exercise-write-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-write1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-write1-code-editor`)), session)
-output$`tutorial-exercise-write1-output` <- renderUI({
-  `tutorial-exercise-write1-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-write2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-write2-code-editor`)), session)
 output$`tutorial-exercise-write2-output` <- renderUI({
   `tutorial-exercise-write2-result`()
@@ -2117,6 +2156,13 @@ output$`tutorial-exercise-plot3-output` <- renderUI({
 `tutorial-exercise-plot4-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-plot4-code-editor`)), session)
 output$`tutorial-exercise-plot4-output` <- renderUI({
   `tutorial-exercise-plot4-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-ggplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ggplot-code-editor`)), session)
+output$`tutorial-exercise-ggplot-output` <- renderUI({
+  `tutorial-exercise-ggplot-result`()
 })
 </script>
  
@@ -2215,13 +2261,6 @@ output$`tutorial-exercise-elplot3-output` <- renderUI({
 `tutorial-exercise-elplot4-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-elplot4-code-editor`)), session)
 output$`tutorial-exercise-elplot4-output` <- renderUI({
   `tutorial-exercise-elplot4-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-elplot04-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-elplot04-code-editor`)), session)
-output$`tutorial-exercise-elplot04-output` <- renderUI({
-  `tutorial-exercise-elplot04-result`()
 })
 </script>
  

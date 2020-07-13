@@ -4,7 +4,7 @@ author: "Jonathan Dreyfuss PhD, Dir, Bioinfo & Biostat Core, Joslin Diabetes Cen
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.1.9992
+  version: 0.0.1.9994
 ---
 
 ```{r setup, include=FALSE}
@@ -13,6 +13,7 @@ options(repos = BiocManager::repositories())
 library(limma)
 library(ezlimma)
 library(ezlimmaplot)
+library(ggplot2)
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -26,6 +27,7 @@ You'd like to analyze and visualize your data. Your workflow will be the most fl
 ### Goal of tutorial
 Programming looks intimidating, but once you understand the basics, you should be able to Google questions, understand the answers, and be productive. I'll try to teach as much of the basics as I can in the hour I have to present this tutorial. You may wish to come back to it later to refresh and practice.
 
+## R & RStudio
 ### R
 - R is a free language and software for statistical computing and graphics  
 - R has thousands of free contributed packages, such as roughly 1000 bioinformatics packages that make up the [Bioconductor](https://www.bioconductor.org/) project, and packages that allow R to create data-rich, interactive [websites](https://shiny.rstudio.com/gallery/)  
@@ -43,9 +45,11 @@ R code is in the *Source* panel, which is at the top left. This is where you wri
 ```{r one-plus-one, exercise=TRUE, exercise.eval = TRUE}
 1+1
 ```
+
 ```{r comment, exercise=TRUE, exercise.eval = TRUE}
 # is a comment. it doesn't get executed.
 ```
+
 ```{r one-plus-onex, exercise=TRUE, exercise.eval = TRUE}
 x <- 1+1 #nothing is displayed
 ```
@@ -79,6 +83,8 @@ print(n) # displays the variable
 ```{r}
 n <- 4 #Create a global variable n=4 to be used later on.
 ```
+
+You can modify the code below to, say, `n=5` and you can see the output change when you press on the button `Run code`. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable's value in R, the value will remain changed.
 
 ```{r Numeric1, exercise=TRUE, exercise.eval = TRUE}
 n = 4 #does the same thing.  '<-' is usually equivalent to '='.
@@ -487,8 +493,14 @@ str(d) #1st column is now character
 ```
 
 We can also prevent R from turning characters into factors by setting a global option
+
+```{r Factors1_5, exercise=TRUE, exercise.eval = TRUE}
+options("stringsAsFactors")
+```
+
 ```{r Factors2, exercise=TRUE, exercise.eval = TRUE}
 options(stringsAsFactors=FALSE) #applies to the rest of your session
+options("stringsAsFactors")
 ```
 
 ```{r Factors3, exercise=TRUE, exercise.eval = TRUE}
@@ -581,7 +593,7 @@ pheno <- data.frame(grp=rep(c('a', 'b', 'c'), each=3))
 pheno
 ```
 
-```{r}
+```{r ds2-global}
 pheno <- data.frame(grp=rep(c('a', 'b', 'c'), each=3)) #Global variable pheno
 rownames(pheno) <- colnames(gx)
 ```
@@ -590,25 +602,30 @@ rownames(pheno) <- colnames(gx)
 rownames(pheno) <- colnames(gx)
 pheno
 ```
+
 ```{r ds22, exercise=TRUE, exercise.eval = TRUE}
 # make random gene symbols: don't worry about how i generate these
-annot <- data.frame(gene.symbols=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
+annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
-                                        sample(x=LETTERS, size=100, replace=TRUE)))
+                                        sample(x=LETTERS, size=100, replace=TRUE)),
+                    pathway=sample(x=c("oxphos", "glycolysis", "tca cycle", "none"), 
+                                   size=nrow(gx), replace=TRUE))
 annot
 ```
-```{r}
-# make random gene symbols:
-annot <- data.frame(gene.symbols=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
+
+```{r ds22-global}
+annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
-                                        sample(x=LETTERS, size=100, replace=TRUE)))
+                                        sample(x=LETTERS, size=100, replace=TRUE)),
+                    pathway=sample(x=c("oxphos", "glycolysis", "tca cycle", "none"), 
+                                   size=nrow(gx), replace=TRUE))
 rownames(annot) <- rownames(gx)
 ```
+
 ```{r ds23, exercise=TRUE, exercise.eval = TRUE}
 rownames(annot) <- rownames(gx)
 annot
 ```
-
 
 ## Reading / writing data
 We're going to write & read from the working directory. R assumes by default that you're reading/writing in your working directory.
@@ -619,21 +636,16 @@ getwd() #see working directory
 We can change working directory with `setwd()` or under Session/Set Working Directory. Usually we write to tab-delimited text (TXT) or comma separated value (CSV). Both can be opened in Excel, and Excel can save as both formats.
 ```{r write, exercise=TRUE, exercise.eval = TRUE}
 write.csv(gx, "gx.csv") #now look in your working directory for the file
-```
 
-```{r}
-getwd()
-write.csv(gx, "gx.csv") #now look in your working directory for the file
-```
-
-```{r write1, exercise=TRUE, exercise.eval = TRUE}
 #tables are read in by default as data frames
 gx <- read.csv("gx.csv", row.names=1) #row.names=1 sets 1st column as rownames
+gx[1:5,]
 ```
 
 ```{r write2, exercise=TRUE, exercise.eval = TRUE}
 #transform gx from data.frame to a numeric matrix
-gx <- data.matrix(gx)
+gx <- as.matrix(gx)
+gx[1:5,]
 ```
 
 ## Plots
@@ -643,20 +655,12 @@ Can see in R Studio in bottom right *Plots* tab
 boxplot(gx)
 ```
 
-```{r}
-set.seed(0) #Create a global dataset
-gx <- matrix(rnorm(n=900), nrow=100, ncol=9)
-gx[1, 1:3] <- gx[1, 1:3]+3
-rownames(gx) <- paste('gene', 1:100, sep='')
-colnames(gx) <- c(paste('a', 1:3, sep=''), paste('b', 1:3, sep=''), paste('c', 1:3, sep=''))
-gx <- data.matrix(gx)
-```
-
 ```{r hist, exercise=TRUE, exercise.eval = TRUE}
 hist(gx)
 ```
 
-Most basic is `plot()` so we'll practice with this.
+Most basic is `plot()`
+
 ```{r scatter, exercise=TRUE, exercise.eval = TRUE}
 plot(x=gx[,1], y=gx[,2]) #scatter plot of a1 vs a2
 ```
@@ -687,17 +691,17 @@ plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
 We can use "Export" in *Plots* tab, or we can use code to open file, plot to it, then close it. We'll make a PDF with `pdf` function but we could use `png`, `jpeg`, `tiff`, etc. Our PDF is at [scatter.pdf](./scatter.pdf).
 ```{r plot4, exercise=TRUE, exercise.eval = TRUE}
 pdf("scatter.pdf") #open graphics device
-
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
-
 dev.off() #close graphics device
 ```
-```{r}
-pdf("scatter.pdf") #open graphics device
 
-plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
-
-dev.off() #close graphics device
+### ggplot2
+`ggplot2` is commonly used graphics package that makes pretty plots.
+```{r ggplot, exercise=TRUE, exercise.eval = TRUE}
+library(ggplot2)
+qp <- qplot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], color=annot$pathway)
+ggsave(filename = "gg_scatter.pdf", plot=qp)
+qp
 ```
 
 ## Differential expression analysis
@@ -759,12 +763,12 @@ toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 `toptab` is ordered by overall significance of the 3 tests. We round the number of significant digits in `toptab` to 3 with `signif`. When we add annotation, we make sure the rows of `toptab` match the rows of `annot` using `annot[rownames(toptab),]`. We write this to [diff_gene_stats.csv](./diff_gene_stats.csv).
 
 ```{r ezlimma2, exercise=TRUE, exercise.eval = TRUE}
-toptab.ann <- data.frame(signif(toptab, 3), symbol=annot[rownames(toptab),])
+toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 toptab.ann[1:5,]
 ```
 
 ```{r ezl2-global}
-toptab.ann <- data.frame(signif(toptab, 3), symbol=annot[rownames(toptab),])
+toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 ```
 
 ```{r ezlimma3, exercise=TRUE, exercise.eval = TRUE}
@@ -811,7 +815,7 @@ ezpca(object=gx, pheno.df=pheno, name=NA, color="grp")
 ### Significance histograms
 We make a histogram of p-values and false discovery rates (FDR) for each comparison, at [signif_hist.pdf](./signif_hist.pdf).
 ```{r elplot2, exercise=TRUE, exercise.eval = TRUE}
-signif_hist(tab = toptab)
+signif_hist(tab = toptab, name = NA)
 ```
 
 ### Venn diagram
@@ -826,15 +830,11 @@ This plot doesn't tell us which genes are in common, but `venn.tab` has this inf
 We can make a heatmap of the top genes in `toptab.ann`.
 ```{r elplot4, exercise=TRUE, exercise.eval = TRUE}
 top.genes <- rownames(toptab.ann)[1:10]
-```
-
-```{r}
-top.genes <- rownames(toptab.ann)[1:10]
-```
-
-```{r elplot04, exercise=TRUE, exercise.eval = TRUE}
-
 ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, "symbol"], pheno.df = pheno, name=NA)
+```
+
+```{r elplot4-global}
+top.genes <- rownames(toptab.ann)[1:10]
 ```
 
 By default, the row scaling *centers* the rows by subtracting the row mean. Then the new mean of every row is zero. This helps see contrast between samples, instead of between rows.
