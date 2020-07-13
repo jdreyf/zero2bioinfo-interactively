@@ -1,10 +1,10 @@
 ---
 title: "From zero to bioinformatics in R interactively"
-author: "Jonathan Dreyfuss PhD, Dir, Bioinfo & Biostat Core, Joslin Diabetes Center"
+author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes Center"
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.1.9994
+  version: 0.0.1.9995
 ---
 
 ```{r setup, include=FALSE}
@@ -699,9 +699,13 @@ dev.off() #close graphics device
 `ggplot2` is commonly used graphics package that makes pretty plots.
 ```{r ggplot, exercise=TRUE, exercise.eval = TRUE}
 library(ggplot2)
-qp <- qplot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], color=annot$pathway)
-ggsave(filename = "gg_scatter.pdf", plot=qp)
-qp
+gx_df <- data.frame(gx, annot)
+ggp <- ggplot(data = gx_df) + geom_point(mapping=aes(x=a1, y=a2, color=pathway))
+ggp
+```
+
+```{r ggplot1, exercise=TRUE, exercise.eval = TRUE}
+ggsave(filename = "gg_scatter.pdf", plot=ggp)
 ```
 
 ## Differential expression analysis
