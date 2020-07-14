@@ -4,7 +4,7 @@ author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes C
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.1.9998
+  version: 0.0.2.10000
 ---
 
 ```{r setup, include=FALSE}
@@ -79,11 +79,10 @@ n <- 4
 print(n) # displays the variable
 ```
 
+This assigns the value 4 to variable `x`. `<-` represents an arrow.
 ```{r}
 n <- 4 #Create a global variable n=4 to be used later on.
 ```
-
-This assigns the value 4 to variable `x`. `<-` represents an arrow.
 
 You can modify the code below to, say, `n=5` and you can see the output change when you press on the button `Run Code`. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable's value in R, the value will remain changed.
 
@@ -119,11 +118,11 @@ A logical can have the values `TRUE`, `FALSE`, and `NA` ("Not Available"). You m
 4!=5 #is 4 not equal to 5?
 ```
 
+Assigns the value of `4>5` (i.e. `FALSE`) to `b`.
 ```{r logic02, exercise=TRUE, exercise.eval = TRUE}
 b <- 4 > 5
+b
 ``` 
-
-Assigns the value of `4>5` (i.e. `FALSE`) to `b`
 
 ```{r}
 b <- 4 > 5 #Create a global variable n1=4 > 5 (i.e. FALSE)
@@ -247,7 +246,7 @@ We want a variable to be able to hold more than a single value. A vector is a li
 ### Numeric vectors
 
 We can create vectors with `c()`, which concatenates values.
-```{r Vectors, exercise=TRUE }
+```{r Vectors, exercise=TRUE, exercise.eval = TRUE}
 x <- c(1, 2, 3, 4)
 x
 ```
@@ -269,7 +268,7 @@ x
 A more general way than `:` to create sequences is `seq()` function. We can learn about this function with 
 
 ```{r seq, exercise=TRUE}
-?seq
+?seq # works in RStudio, but does not work well on shinyapps.io
 ```
 
 The following calls are the same:
@@ -610,6 +609,7 @@ We'll work with a simulated gene expression matrix, such as from a microarray, w
 
 We're going to treat this data as being on the log2-scale and already *processed*. For many datasets, there are zeroes or missing values that might need to be imputed; samples need to be normalized to make them comparable and amenable to statistical tests; absent genes need to be removed; sample outliers need to be assessed to examine whether some experimental variables or batch effects need to be accounted for or the samples need to be removed or down-weighted; and trends between a gene's mean expression and its variance should be accounted for, especially in RNA-seq data [voom](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29).
 
+We simulate data for the matrix.
 ```{r ds, exercise=TRUE, exercise.eval = TRUE}
 set.seed(0) #set a seed for random sampling to get reproducible results
 gx <- matrix(rnorm(n=900), nrow=100, ncol=9)
@@ -621,16 +621,21 @@ set.seed(0) #Create a global dataset
 gx <- matrix(rnorm(n=900), nrow=100, ncol=9)
 ```
 
+Upregulate 1st gene in group `a`.
 ```{r ds1, exercise=TRUE, exercise.eval = TRUE}
 gx[1, 1:3] <- gx[1, 1:3]+3
 
+#Diplay first 5 rows of gx
+gx[1:5,]
+```
+
+Add `rownames` & `colnames`
+```{r ds1_5, exercise=TRUE, exercise.eval = TRUE}
 #sep='' says not to put a space between 'gene' and the numbers
 rownames(gx) <- paste('gene', 1:100, sep='')
 
 #3 samples in group 'a' & 3 in group 'b' & 3 in group 'c'
 colnames(gx) <- c(paste('a', 1:3, sep=''), paste('b', 1:3, sep=''), paste('c', 1:3, sep=''))
-
-#Diplay first 5 rows of gx
 gx[1:5,]
 ```
 
@@ -660,7 +665,7 @@ pheno
 ```
 
 ```{r ds22, exercise=TRUE, exercise.eval = TRUE}
-# make random gene symbols: don't worry about how i generate these
+# make random gene symbols: don't worry about how I generate these
 annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE)),
@@ -684,12 +689,13 @@ annot
 ```
 
 ## Reading / writing data
-We're going to write & read from the working directory. R assumes by default that you're reading/writing in your working directory.
+The code below write & read from the working directory on your personal computer. R assumes by default that you're reading/writing in your working directory.
+
 ```{r read, exercise=TRUE, exercise.eval = TRUE}
 getwd() #see working directory
 ```
 
-We can change working directory with `setwd()` or under Session/Set Working Directory. Usually we write to tab-delimited text (TXT) or comma separated value (CSV). Both can be opened in Excel, and Excel can save as both formats.
+We can change working directory with `setwd()` or in RStudio under Session/Set Working Directory. Usually we write to tab-delimited text (TXT) or comma separated value (CSV). Both can be opened in Excel, and Excel can save as both formats.
 ```{r write, exercise=TRUE, exercise.eval = TRUE}
 write.csv(gx, "gx.csv") #now look in your working directory for the file
 
@@ -698,15 +704,15 @@ gx <- read.csv("gx.csv", row.names=1) #row.names=1 sets 1st column as rownames
 gx[1:5,]
 ```
 
+We coerce `gx` from data.frame to a numeric matrix. We could also do this with `data.matrix()`.
 ```{r write2, exercise=TRUE, exercise.eval = TRUE}
-#transform gx from data.frame to a numeric matrix
 gx <- as.matrix(gx)
 gx[1:5,]
 ```
 
 ## Plots
 ### Many types of plots are available
-Can see in R Studio in bottom right *Plots* tab
+Can see in RStudio in bottom right *Plots* tab
 ```{r box, exercise=TRUE, exercise.eval = TRUE}
 boxplot(gx)
 ```
@@ -734,8 +740,6 @@ plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2])
 We also want to reorient axis tick labels on y-axis. 
 ```{r plot2, eval=FALSE, exercise=TRUE}
 ?plot #sends us to par. par options are applicable to many plots.
-```
-```{r par, eval=FALSE, exercise=TRUE}
 ?par #there are many par options, the one we want is "las".
 ```
 
@@ -744,7 +748,7 @@ plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
 ```
 
 ### Save plot to file
-We can use "Export" in *Plots* tab, or we can use code to open file, plot to it, then close it. We'll make a PDF with `pdf` function but we could use `png`, `jpeg`, `tiff`, etc. Our PDF is at [scatter.pdf](./scatter.pdf).
+We can use "Export" in *Plots* tab, or we can use code to open file, plot to it, then close it. We'll make a PDF with `pdf` function but we could use `png`, `jpeg`, `tiff`, etc.
 ```{r plot4, exercise=TRUE, exercise.eval = TRUE}
 pdf("scatter.pdf") #open graphics device
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
@@ -752,7 +756,7 @@ dev.off() #close graphics device
 ```
 
 ### ggplot2
-`ggplot2` is commonly used graphics package that makes pretty plots.
+`ggplot2` is commonly used graphics package that makes pretty plots. You can learn more about it at [ggplot2](https://ggplot2.tidyverse.org/).
 ```{r ggplot, exercise=TRUE, exercise.eval = TRUE}
 library(ggplot2)
 gx_df <- data.frame(gx, annot)
@@ -760,6 +764,7 @@ ggp <- ggplot(data = gx_df) + geom_point(mapping=aes(x=a1, y=a2, color=pathway))
 ggp
 ```
 
+Save `ggplot2` plots to file with `ggsave()`.
 ```{r ggplot1, exercise=TRUE, exercise.eval = TRUE}
 ggsave(filename = "gg_scatter.pdf", plot=ggp)
 ```
@@ -795,7 +800,7 @@ pv
 ```
 
 ### `apply`
-There's a more advanced & faster way you `apply` the `t.test` function to each row.
+We can also `apply` the `t.test` function to each row.
 ```{r exp3, exercise=TRUE, exercise.eval = TRUE}
 # MARGIN=1 says to apply to rows
 pv <- apply(gx, MARGIN = 1, FUN=function(row.v){ 
@@ -807,11 +812,9 @@ pv
 ## `ezlimma` package
 You can install `ezlimma` by following instructions at [ezlimma](https://github.com/jdreyf/ezlimma). `ezlimma`'s tutorial is presented as a *vignette*, like many R packages. Here we create multiple group comparisons, and test them all in one line with `limma_contrasts`.
 
-`browseVignettes()` will show you the vignette.
-
 ```{r ezlimma, exercise=TRUE}
 library(ezlimma)
-browseVignettes(package="ezlimma")
+# browseVignettes(package="ezlimma") # would allow you to view vignette on your personal computer
 ```
 
 ```{r ezlimma1, exercise=TRUE, exercise.eval = TRUE}
@@ -825,10 +828,13 @@ contrast.v <- c(AvsB='a-b', AvsC='a-c', BvsC='b-c')
 toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 ```
 
-`toptab` is ordered by overall significance of the 3 tests. We round the number of significant digits in `toptab` to 3 with `signif`. When we add annotation, we make sure the rows of `toptab` match the rows of `annot` using `annot[rownames(toptab),]`. We write this to `diff_gene_stats.csv`.
+`toptab` is ordered by combined significance of the 3 tests. 
+
+When we add annotation, we make sure the rows of `toptab` match the rows of `annot` with `annot[rownames(toptab),]`.
 
 ```{r ezlimma2, exercise=TRUE, exercise.eval = TRUE}
-toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
+# signif() reduce the number of significant digits in toptab to 3
+toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),]) 
 toptab.ann[1:5,]
 ```
 
@@ -836,19 +842,15 @@ toptab.ann[1:5,]
 toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 ```
 
-```{r ezlimma3, exercise=TRUE}
-write.csv(toptab.ann, "diff_gene_stats.csv")
-```
-
 In `ezlimma`, we can also test correlation of each gene to a continuous phenotype in one line of code.
 
 ```{r ezlimma4, exercise=TRUE, exercise.eval = TRUE}
 Y <- c(1:9)
 toptab.y <- ezcor(object = gx, phenotype = Y, prefix = "Y")
-toptab.y
+toptab.y[1:10,]
 ```
 
-`toptab.y` is ordered by the significance of the correlation and gives correlation coefficient, p-value, and FDR. 
+`toptab.y` is ordered by the significance of the correlation and gives correlation coefficient, p-value, and FDR.
 
 We can plot the top gene, gene27, vs. `Y`.
 ```{r ezlimma5, exercise=TRUE, exercise.eval = TRUE}
@@ -862,7 +864,7 @@ We can plot `ezlimma` results with `ezlimmaplot`. We'll focus on the differentia
 
 ```{r elplot, exercise=TRUE}
 library(ezlimmaplot)
-browseVignettes(package="ezlimmaplot")
+# browseVignettes(package="ezlimmaplot")
 ```
 
 ### PCA
