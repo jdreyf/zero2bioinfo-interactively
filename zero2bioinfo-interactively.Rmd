@@ -4,17 +4,17 @@ author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes C
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.1.9995
+  version: 0.0.1.9998
 ---
 
 ```{r setup, include=FALSE}
 library(BiocManager)
-options(repos = BiocManager::repositories())
 library(limma)
 library(ezlimma)
 library(ezlimmaplot)
 library(ggplot2)
 library(learnr)
+options(repos = BiocManager::repositories(), stringsAsFactors = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Welcome
 
-You'd like to analyze and visualize your data. Your workflow will be the most flexible, powerful, and reproducible if it involves *programming*. This type of programming is now called *data science*, and it's one of the best jobs for the last several years according to [glassdoor](https://www.glassdoor.com/List/Best-Jobs-in-America-LST_KQ0,20.htm).
+You'd like to analyze and visualize your data. Your workflow will be the most flexible, powerful, and reproducible if it involves *programming*. This type of programming is now called *data science*.
 
 ### Goal of tutorial
 Programming looks intimidating, but once you understand the basics, you should be able to Google questions, understand the answers, and be productive. I'll try to teach as much of the basics as I can in the hour I have to present this tutorial. You may wish to come back to it later to refresh and practice.
@@ -30,7 +30,7 @@ Programming looks intimidating, but once you understand the basics, you should b
 ## R & RStudio
 ### R
 - R is a free language and software for statistical computing and graphics  
-- R has thousands of free contributed packages, such as roughly 1000 bioinformatics packages that make up the [Bioconductor](https://www.bioconductor.org/) project, and packages that allow R to create data-rich, interactive [websites](https://shiny.rstudio.com/gallery/)  
+- R has thousands of free contributed packages, such as roughly 2,000 bioinformatics packages that make up the [Bioconductor](https://www.bioconductor.org/) project, and packages that allow R to create data-rich, interactive [websites](https://shiny.rstudio.com/gallery/)  
 - You can download base R for [Windows](https://cloud.r-project.org/bin/windows/base/) or [Mac OS X](https://cloud.r-project.org/bin/macosx/) or Linux
 
 ### RStudio
@@ -55,7 +55,7 @@ x <- 1+1 #nothing is displayed
 ```
 
 ### R Markdown
-This HTML is written in [R Markdown](https://rmarkdown.rstudio.com/), which weaves together text, figures, and code. You can "Knit" R Markdown documents into HTML, PDF, Microsoft Word, or other formats by pressing the "Knit" icon in R Studio. (This requires you to install the "knitr" package, which can be done with `install.packages("knitr", repos = "https://cloud.r-project.org")`, and the packages used below, `ezlimma` and `ezlimmaplot`.)
+This HTML is written in [R Markdown](https://rmarkdown.rstudio.com/), which weaves together text, figures, and code. You can "Knit" R Markdown documents into HTML, PDF, Microsoft Word, or other formats by pressing the "Knit" icon in R Studio. (This requires you to install the `knitr` package, which can be done with `install.packages("knitr", repos = "https://cloud.r-project.org")`, and the packages used below, `ezlimma`, `ezlimmaplot`, and `ggplot2`.)
 
 ![Image from [RStudio R Markdown lesson](https://rmarkdown.rstudio.com/lesson-9.html)](./images/knit.png)
 
@@ -64,9 +64,8 @@ In RStudio go to Help/R Help, then
 
 - [Learning R Online](https://www.rstudio.com/online-learning/). One resource they cite is the free book [R for Data Science](https://r4ds.had.co.nz/), which has a particularly helpful chapter on [data visualization](https://r4ds.had.co.nz/data-visualisation.html) using the popular R package `ggplot2`.  
 - *An Introduction to R*. The intro is also available in [PDF](http://cran.r-project.org/doc/manuals/R-intro.pdf). I found it (especially the first six chapters, which is only 30 pages) very helpful when I was learning R.  
-- RStudio also maintains many [cheatsheets](https://www.rstudio.com/resources/cheatsheets/), including an introductory cheatshet for [Base R](./base-r.pdf) -- this cheatsheet has much of what we will cover.
-
-Harvard R/bioinformatics [trainings](http://bioinformatics.sph.harvard.edu/training/)
+- RStudio also maintains many [cheatsheets](https://www.rstudio.com/resources/cheatsheets/), including an introductory cheatshet for [Base R](./base-r.pdf) -- this cheatsheet has much of what we will cover.  
+- Chan HSPH R/bioinformatics holds regular [trainings](http://bioinformatics.sph.harvard.edu/training/)
 
 ## R packages developed by the Core
 Dr. Hui Pan (Senior Bioinformatician, Bioinfo. & Biostat. Core) and I have developed several R packages to streamline bioinformatics analysis. These are based on the popular R package [limma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4402510/), which applies linear regression modeling of omics data with sophisticated variance estimation to improve power, and has been validated in multiple data types. Our packages are freely available on the popular code repository [Github](https://github.com/). R packages on Github can be directly installed in R.
@@ -76,7 +75,7 @@ Our analysis package is [ezlimma](https://github.com/jdreyf/ezlimma) and our plo
 ## Types
 ### Numeric 
 ```{r Numeric, exercise=TRUE, exercise.eval = TRUE}
-n <- 4 #assigns the value 4 to variable x. '<-' represents an arrow.
+n <- 4
 print(n) # displays the variable
 ```
 
@@ -84,18 +83,25 @@ print(n) # displays the variable
 n <- 4 #Create a global variable n=4 to be used later on.
 ```
 
-You can modify the code below to, say, `n=5` and you can see the output change when you press on the button `Run code`. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable's value in R, the value will remain changed.
+This assigns the value 4 to variable `x`. `<-` represents an arrow.
+
+You can modify the code below to, say, `n=5` and you can see the output change when you press on the button `Run Code`. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable's value in R, the value will remain changed.
 
 ```{r Numeric1, exercise=TRUE, exercise.eval = TRUE}
-n = 4 #does the same thing.  '<-' is usually equivalent to '='.
+n = 4 
 n #same as print() when not in loop or function
 ```
+
+`=` does the same thing.  `<-` is usually equivalent to `=`.
 
 ```{r Numeric4, exercise=TRUE, exercise.eval = TRUE}
 n+2
 ```
+
+Alternative expression of above:
+`
 ```{r Numeric5, exercise=TRUE, exercise.eval = TRUE}
-sum(n, 2) #same as n+2
+sum(n, 2)
 ```
 
 However, R is case sensitive, so this produces an error
@@ -108,29 +114,39 @@ A logical can have the values `TRUE`, `FALSE`, and `NA` ("Not Available"). You m
 ```{r logic, exercise=TRUE, exercise.eval = TRUE}
 4==4 #is 4 equal to 4?
 ```
+
 ```{r logic01, exercise=TRUE, exercise.eval = TRUE}
 4!=5 #is 4 not equal to 5?
 ```
+
 ```{r logic02, exercise=TRUE, exercise.eval = TRUE}
-n1 <- 4 > 5 #assign the value of 4>5 (i.e. FALSE) to n1
+b <- 4 > 5
 ``` 
+
+Assigns the value of `4>5` (i.e. `FALSE`) to `b`
+
 ```{r}
-n1 <- 4 > 5 #Create a macro variable n1=4 > 5 (i.e. FALSE)
+b <- 4 > 5 #Create a global variable n1=4 > 5 (i.e. FALSE)
 ``` 
+
 ```{r logic03, exercise=TRUE, exercise.eval = TRUE}
-!n1 #not n1
+!b #not b
 ```
+
 ```{r logic04, exercise=TRUE, exercise.eval = TRUE}
-n1 | (5>4)
+b | (5>4)
 ```
+
 ```{r logic05, exercise=TRUE, exercise.eval = TRUE}
-n1 & TRUE
+b & TRUE
 ```
 
 An easy mistake is to check equality with `=`.
 ```{r logic2, exercise=TRUE}
-4=4 #doesn't work, '=' is for assigning values to variables
+4=4
 ```
+
+This doesn't work, `=` is for assigning values to variables. Instead, use `==`.
 
 We use logicals in `if` statements.
 
@@ -157,13 +173,17 @@ if (z==4){
 
 ### Characters
 ```{r char, exercise=TRUE, exercise.eval = TRUE}
-x <- 'hello' #a character string
+x <- 'hello'
 x
 ```
+`'hello'` is a character string.
+
+Get same behavior as above; you can use either single or double quotes
 ```{r char1, exercise=TRUE, exercise.eval = TRUE}
-x <- "hello" #same as above, can use single or double quotes
+x <- "hello"
 x
 ```
+
 ```{r}
 x <- 'hello' #Create a global variable c='hello'
 ```
@@ -173,57 +193,65 @@ Can paste character strings together
 paste(x, 'world')
 ```
 
-### `NA` (*Not Available*) values
+### `NA` (Not Available) values
 This is for missing data. `NA`s can occur in any variable type and are treated specially.
 ```{r NAs, exercise=TRUE, exercise.eval = TRUE}
-u <- NA #data for y is missing
-```
-```{r }
-u <- NA #data for y is missing
-```
-```{r NAs1, exercise=TRUE, exercise.eval = TRUE}
-u+1 #don't know y, so the result is also missing
-```
-```{r NAs2, exercise=TRUE, exercise.eval = TRUE}
-is.na(u) #test if a value is NA
-```
-```{r NAs3, exercise=TRUE, exercise.eval = TRUE}
-sum(u, 1, na.rm=TRUE) #ignore NAs in sum
+u <- NA #data for u is missing
 ```
 
+```{r}
+u <- NA #global: data for u is missing
+```
+
+We don't know `u`, so the result is also missing.
+```{r NAs1, exercise=TRUE, exercise.eval = TRUE}
+u+1
+```
+
+We test if a value is `NA` using `is.na()`:
+
+```{r NAs2, exercise=TRUE, exercise.eval = TRUE}
+is.na(u)
+```
+
+Many functions can ignore `NA`s. For example, we can ignore `NA`s in `sum`:
+```{r NAs3, exercise=TRUE, exercise.eval = TRUE}
+sum(u, 1, na.rm=TRUE)
+```
 
 ## Getting help
-To get help on `sum()` function, can Google: "r sum" or "sum in r". If you know the function name, you can enter:
-
-```{r help, eval=FALSE}
-?sum
-```
-
-which will open the help page for `sum` in R Studio's *Help* tab in the bottom right panel.
+To get help on `sum()` function, can Google: "r sum" or "sum in r". If you know the function name, you can enter `?sum` in the console, which will open the help page for `sum` in R Studio's *Help* tab in the bottom right panel.
 
 ## Change types, called *coercion*
-Functions sometimes need input to be of a particular type, e.g. can coerce numbers to character.
+Functions sometimes need input to be of a particular type, for example a function may accept a character. If you instead have a number, you can coerce numbers to character.
 ```{r change, exercise=TRUE, exercise.eval = TRUE}
-as.character(z) #can tell it's a character because it's now in quotes
+as.character(z)
 ```
+We can tell the output is a character because it's now in quotes.
+
 You can also change logical to numeric
 ```{r change1, exercise=TRUE, exercise.eval = TRUE}
-#numeric value of TRUE
 as.numeric(TRUE) #1
 ```
+So, the numeric value of `TRUE` is 1,
+
 ```{r change2, exercise=TRUE, exercise.eval = TRUE}
-#numeric value of FALSE
 as.numeric(FALSE) #0
 ```
+
+Whereas the numeric value of `FALSE` is 0.
 
 ## Vectors
 We want a variable to be able to hold more than a single value. A vector is a list of values of a common type (e.g. numbers). We can do similar operations as above to multiple values in a vector simultaneously.
 
 ### Numeric vectors
+
+We can create vectors with `c()`, which concatenates values.
 ```{r Vectors, exercise=TRUE }
-x <- c(1, 2, 3, 4) #c() is concatenation -- it creates a vector
+x <- c(1, 2, 3, 4)
 x
 ```
+
 ```{r}
 x <- 1:4 #Create global variables to use later on
 y <- 2*x+1 
@@ -237,28 +265,31 @@ x <- 1:4
 x
 ```
 
-
 ### Practice using functions
-A more general way than `:` to create sequences is `seq()` function. Can learn about this with
-```{r Vector03, eval=FALSE, exercise=TRUE}
+A more general way than `:` to create sequences is `seq()` function. We can learn about this function with 
+
+```{r seq, exercise=TRUE}
 ?seq
 ```
 
-The following calls are the same :
+The following calls are the same:
 ```{r Vector2, exercise=TRUE, exercise.eval = TRUE}
 seq(1,4,1) #R expects arguments in the given order,
 ```
+
 ```{r Vector21, exercise=TRUE, exercise.eval = TRUE}
 seq(to=4, from=1, by=1) #But you can name them & give in any order
 ```
+
 You don't always need to write out full argument names
 ```{r Vector22, exercise=TRUE, exercise.eval = TRUE}
 #it matches "fr" to argument "from", since no other arguments start w/ "fr"
 seq(to=4, fr=1, by=1)
 ```
+
 You don't need to specify arguments that already have the proper default
 ```{r Vector23, exercise=TRUE, exercise.eval = TRUE}
-seq(to=4, by=1) #since default for from=1
+seq(to=4, by=1) #since default has from=1
 ```
 
 ### Operations on numeric vectors
@@ -266,22 +297,28 @@ seq(to=4, by=1) #since default for from=1
 y <- 2*x+1 #operates on each element of x
 y
 ```
+
 ```{r Vector32, exercise=TRUE, exercise.eval = TRUE}
 mean(x)
 ```
+
 ```{r Vector33, exercise=TRUE, exercise.eval = TRUE}
 length(x) #length of vector
 ```
+
 ```{r Vector34, exercise=TRUE, exercise.eval = TRUE}
 var(x) #variance
 ```
+
 ```{r Vector35, exercise=TRUE, exercise.eval = TRUE}
 t.test(x, y)
 ```
+
+We can repeat values using `rep()`
 ```{r Vector36, exercise=TRUE, exercise.eval = TRUE}
-#we can repeat values using rep()
 rep(x, times=2)
 ```
+
 ```{r Vector37, exercise=TRUE, exercise.eval = TRUE}
 rep(x, each=2)
 ```
@@ -291,27 +328,34 @@ rep(x, each=2)
 b1 <- y > 6 #is each element of y greater than 6?
 b1
 ```
+
 ```{r Vector40, exercise=TRUE, exercise.eval = TRUE}
 b2 <- y == 7 #is each element of y equal to 7?
 b2
 ```
+
 ```{r Vector41, exercise=TRUE, exercise.eval = TRUE}
 b1 & b2 #and
 ```
+
 ```{r Vector42, exercise=TRUE, exercise.eval = TRUE}
 b1 | b2 #or
 ```
+
 ```{r Vector43, exercise=TRUE, exercise.eval = TRUE}
 !b1 #not b1
 ```
+
+`which()` identifies the values that are `TRUE`
 ```{r Vector44, exercise=TRUE, exercise.eval = TRUE}
-#which values are TRUE?
 which(b1)
 ```
+
+Some functions automatically coerce logicals to numeric
 ```{r Vector45, exercise=TRUE, exercise.eval = TRUE}
-#some functions automatically coerce logicals to numeric
 sum(b1)
 ```
+
 ```{r Vector46, exercise=TRUE, exercise.eval = TRUE}
 mean(b1)
 ```
@@ -320,19 +364,20 @@ mean(b1)
 ```{r Vector5, exercise=TRUE, exercise.eval = TRUE}
 first.names <- c('Frederick', 'Charles')
 ```
+
 ```{r Vector50, exercise=TRUE, exercise.eval = TRUE}
 last.names <- c('Banting', 'Best')
 ```
-```{r}
+
+```{r vector50-global}
 first.names <- c('Frederick', 'Charles')
 last.names <- c('Banting', 'Best')
 ```
 
+`paste()` combines first & last names to make full names
 ```{r Vector51, exercise=TRUE, exercise.eval = TRUE}
-#combine first & last names to make full names
 paste(first.names, last.names)
 ```
-
 
 ### Names
 Elements of vectors can have names. We can create a vector with names using the concatenation function `c()`.
@@ -340,136 +385,143 @@ Elements of vectors can have names. We can create a vector with names using the 
 v <- c(a=4, b=5, c=6)
 v
 ```
-```{r}
+
+```{r vectors6-global}
 v <- c(a=4, b=5, c=6) #Global variable
 ```
+
 ```{r Vector61, exercise=TRUE, exercise.eval = TRUE}
 names(v) #this is itself a vector
 ```
 
-
 ### Subset vectors
-We can subset with square brackets using indices or names. 
+We can subset with square brackets using indices or names. Two ways to select the 1st element, 
 ```{r Vector7, exercise=TRUE, exercise.eval = TRUE}
-#select 1st element
 v[1]
 ```
+
 ```{r Vector70, exercise=TRUE, exercise.eval = TRUE}
 v["a"]
 ```
+
+We can select 2nd & 3rd element in multiple ways
 ```{r Vector71, exercise=TRUE, exercise.eval = TRUE}
-#can select 2nd & 3rd element in multiple ways
 v[2:3]
 ```
+
 ```{r Vector72, exercise=TRUE, exercise.eval = TRUE}
 v[c(2,3)]
 ```
+
 ```{r Vector73, exercise=TRUE, exercise.eval = TRUE}
 v[c("b", "c")]
 ```
+
 ```{r Vector74, exercise=TRUE, exercise.eval = TRUE}
 v[c(FALSE, TRUE, TRUE)]
 ```
-```{r Vector75, exercise=TRUE, exercise.eval = TRUE}
-v[-1] #all elements except the 1st
-```
 
+Using `-` excludes indices. For example, `-1` returns all elements except the 1st.
+```{r Vector75, exercise=TRUE, exercise.eval = TRUE}
+v[-1]
+```
 
 ## Matrices & Data frames
 ### Matrices
 Matrix is a table of elements of a common type.
 ```{r Mat, exercise=TRUE, exercise.eval = TRUE}
-m <- matrix(1:4, ncol=2, nrow=2) #create a numeric matrix
+m <- matrix(1:4, ncol=2, nrow=2) #creates a numeric matrix
 m
 ```
+
 ```{r Mat02-setup}
 m <- matrix(1:4, ncol=2, nrow=2) #Global variable for a numeric matrix m
 ```
+
 ```{r Mat02, exercise=TRUE, exercise.eval = TRUE}
 2*m+1 #operates on each element
 ```
+
 ```{r Mat03, exercise=TRUE, exercise.eval = TRUE}
-m <- matrix(c('a', 'b', 'c', 'd'), ncol=2, nrow=2) #create a character matrix
+m <- matrix(c('a', 'b', 'c', 'd'), ncol=2, nrow=2) #creates a character matrix
 m
 ```
+
+We can also create matrices by column-binding vectors using `cbind()` or row-binding vectors using `rbind()`.
 ```{r Mat04, exercise=TRUE, exercise.eval = TRUE}
-#can also create by column-binding using cbind() or row-binding using rbind()
 m <- cbind(first.names, last.names)
 m
 ```
-```{r Mat2-setup }
-m <- cbind(first.names, last.names) 
-```
-```{r Mat21-setup }
-m <- cbind(first.names, last.names) 
-```
-```{r  }
+
+```{r}
 m <- cbind(first.names, last.names) ##Global variable for a character matrix m with names
 rownames(m) <- c("FB", "CB") 
 ```
 
-Matrices can have rownames & colnames
+Matrices can have `rownames` & `colnames`
 ```{r Mat2, exercise=TRUE, exercise.eval = TRUE}
 colnames(m)
 ```
-```{r Mat21, exercise=TRUE, exercise.eval = TRUE}
-rownames(m)
-```
+
 ```{r Mat22, exercise=TRUE, exercise.eval = TRUE}
 rownames(m) <- c("FB", "CB") #assigning rownames to m 
 m
 ```
 
-We can subset matrices & data frames using `object[rows, columns]`. As with vectors, we can specify these using indices or names.
+We can subset matrices & data frames using `object[rows, columns]`. As with vectors, we can specify `rows` or `columns` using indices or names.
 ```{r Mat3, exercise=TRUE, exercise.eval = TRUE}
-
 m[1,] #1st row; leaving the columns index empty selects all columns
 ```
-```{r Mat30, exercise=TRUE, exercise.eval = TRUE}
 
+```{r Mat30, exercise=TRUE, exercise.eval = TRUE}
 m['FB',] #1st row
 ```
+
 ```{r Mat31, exercise=TRUE, exercise.eval = TRUE}
 m[,1] #1st column
 ```
+
 ```{r Mat32, exercise=TRUE, exercise.eval = TRUE}
 m[,'first.names'] #1st column
 ```
+
 ```{r Mat33, exercise=TRUE, exercise.eval = TRUE}
 m[2,1] #2nd row, 1st column
 ```
 
-
 ### Data frames
 A data frame is a table where columns can be of different types but elements within a column are of a common type, like a vector. This is the type of table you'll likely use most of the time.
 
-Can create data frame using `data.frame`
+Can create data frame using `data.frame()`
 ```{r df, exercise=TRUE, exercise.eval = TRUE}
-
 d <- data.frame(first.names, last.names, num=1:2)
 d
 ```
 
 ```{r}
-d <- data.frame(first.names, last.names, num=1:2)
+d <- data.frame(first.names, last.names, num=1:2, stringsAsFactors = TRUE)
 rownames(d) <- c("FB", "CB")
 ```
 
 ```{r df1, exercise=TRUE, exercise.eval = TRUE}
 colnames(d)
 ```
+
 ```{r df2, exercise=TRUE, exercise.eval = TRUE}
 rownames(d) <- c("FB", "CB")
 d
 ```
+
 ```{r df3, exercise=TRUE, exercise.eval = TRUE}
 d[c("FB", "CB"), 2]
 ```
+
 ```{r df4, exercise=TRUE, exercise.eval = TRUE}
 d[,c('first.names', 'num')]
 ```
+
+We can also use `$` for data frame columns.
 ```{r df5, exercise=TRUE, exercise.eval = TRUE}
-#can also use $ for data frame columns
 d$first.names
 ```
 
@@ -479,6 +531,7 @@ Can get detailed info about objects with `summary()` or `str()`
 ```{r Obj, exercise=TRUE, exercise.eval = TRUE}
 summary(d)
 ```
+
 ```{r Obj1, exercise=TRUE, exercise.eval = TRUE}
 str(d) #shows structure
 ```
@@ -486,28 +539,34 @@ str(d) #shows structure
 ### Factors
 Notice that some columns are factors. R turns characters into factors when reading/making tables by default. Factors are a special data type with levels. Factors can be difficult to use, so avoid when possible.
 
+We can coerce factors to character.
 ```{r Factors, exercise=TRUE, exercise.eval = TRUE}
-#we can coerce factors to character
 d[,1] <- as.character(d[,1])
 str(d) #1st column is now character
 ```
 
 We can also prevent R from turning characters into factors by setting a global option
 
-```{r Factors1_5, exercise=TRUE, exercise.eval = TRUE}
+```{r saf-true}
+options(stringsAsFactors=TRUE)
+```
+
+```{r Factors1_5, exercise=TRUE, exercise.eval = TRUE, exercise.setup="saf-true"}
 options("stringsAsFactors")
 ```
 
+We change this global option to `FALSE`, which will last until the end of your R session.
 ```{r Factors2, exercise=TRUE, exercise.eval = TRUE}
-options(stringsAsFactors=FALSE) #applies to the rest of your session
+options(stringsAsFactors=FALSE)
 options("stringsAsFactors")
+```
+
+```{r saf-false}
+options(stringsAsFactors=FALSE)
 ```
 
 ```{r Factors3, exercise=TRUE, exercise.eval = TRUE}
-options(stringsAsFactors=FALSE)
-
 d2 <- data.frame(first.names, last.names, num=1:2)
-
 str(d2) #no factors
 ```
 
@@ -517,8 +576,9 @@ Lists are arbitrary collections of objects. The elements don't have to form a re
 l <- list(pathway1=c('gene1', 'gene2'), pathway2=c('gene3', 'gene4', 'gene5'))
 l
 ```
+
 ```{r}
-l <- list(pathway1=c('gene1', 'gene2'), pathway2=c('gene3', 'gene4', 'gene5')) #Global list l
+l <- list(pathway1=c('gene1', 'gene2'), pathway2=c('gene3', 'gene4', 'gene5')) #Global list
 ```
 
 We can select using names with `$`, like columns of a data frame (a data frame is actually a list under the hood).
@@ -526,10 +586,11 @@ We can select using names with `$`, like columns of a data frame (a data frame i
 l$pathway1
 ```
 
-Some functions return lists. For example, rownames and colnames of a matrix are together called dimnames, which is a list of length 2.
+Some functions return lists. For example, `rownames` and `colnames` of a `matrix` are together called `dimnames`, which is a list of length 2.
 ```{r Lists3, exercise=TRUE, exercise.eval = TRUE}
 dimnames(m)
 ```
+
 ```{r Lists03, exercise=TRUE, exercise.eval = TRUE}
 length(dimnames(m))
 ```
@@ -541,11 +602,6 @@ Another function that returns a list is correlation with `cor.test()`.
 
 ```{r Lists5, exercise=TRUE, exercise.eval = TRUE}
 ct <- cor.test(1:3, c(6,5,7))
-```
-```{r }
-ct <- cor.test(1:3, c(6,5,7)) #Global variable
-```
-```{r Lists6, exercise=TRUE, exercise.eval = TRUE}
 ct$p.value
 ```
 
@@ -751,20 +807,25 @@ pv
 ## `ezlimma` package
 You can install `ezlimma` by following instructions at [ezlimma](https://github.com/jdreyf/ezlimma). `ezlimma`'s tutorial is presented as a *vignette*, like many R packages. Here we create multiple group comparisons, and test them all in one line with `limma_contrasts`.
 
-```{r ezlimma, exercise=TRUE, exercise.eval = TRUE}
+`browseVignettes()` will show you the vignette.
+
+```{r ezlimma, exercise=TRUE}
 library(ezlimma)
-# browseVignettes(package="ezlimma")
+browseVignettes(package="ezlimma")
+```
+
+```{r ezlimma1, exercise=TRUE, exercise.eval = TRUE}
 contrast.v <- c(AvsB='a-b', AvsC='a-c', BvsC='b-c')
 toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 toptab[1:5,]
 ```
 
-```{r ezl-global}
+```{r ezl1-global}
 contrast.v <- c(AvsB='a-b', AvsC='a-c', BvsC='b-c')
 toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 ```
 
-`toptab` is ordered by overall significance of the 3 tests. We round the number of significant digits in `toptab` to 3 with `signif`. When we add annotation, we make sure the rows of `toptab` match the rows of `annot` using `annot[rownames(toptab),]`. We write this to [diff_gene_stats.csv](./diff_gene_stats.csv).
+`toptab` is ordered by overall significance of the 3 tests. We round the number of significant digits in `toptab` to 3 with `signif`. When we add annotation, we make sure the rows of `toptab` match the rows of `annot` using `annot[rownames(toptab),]`. We write this to `diff_gene_stats.csv`.
 
 ```{r ezlimma2, exercise=TRUE, exercise.eval = TRUE}
 toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
@@ -775,11 +836,7 @@ toptab.ann[1:5,]
 toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 ```
 
-```{r ezlimma3, exercise=TRUE, exercise.eval = TRUE}
-write.csv(toptab.ann, "diff_gene_stats.csv")
-```
-
-```{r}
+```{r ezlimma3, exercise=TRUE}
 write.csv(toptab.ann, "diff_gene_stats.csv")
 ```
 
@@ -803,21 +860,20 @@ For pathway analysis, `ezlimma` extends `limma` pathway analyses to write linked
 ## `ezlimmaplot` package
 We can plot `ezlimma` results with `ezlimmaplot`. We'll focus on the differential expression. You can install `ezlimmaplot` by following instructions at [ezlimmaplot](https://github.com/jdreyf/ezlimmaplot). `ezlimmaplot`'s tutorial is also presented as a *vignette*.
 
-
-```{r elplot, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot, exercise=TRUE}
 library(ezlimmaplot)
-# browseVignettes(package="ezlimmaplot")
+browseVignettes(package="ezlimmaplot")
 ```
 
 ### PCA
-We make a Principal Component Analysis (PCA) plot to see how samples cluster. We use the `ezpca` function, which is based on the R package `ggplot2`. So `ezpca` doesn't print to file, we set `name=NA` .
+We make a Principal Component Analysis (PCA) plot to see how samples cluster. We use the `ezpca` function, which is based on the R package `ggplot2`. So that `ezpca` doesn't print to file, we set `name=NA` .
 
 ```{r elplot1, exercise=TRUE, exercise.eval = TRUE}
 ezpca(object=gx, pheno.df=pheno, name=NA, color="grp")
 ```
 
 ### Significance histograms
-We make a histogram of p-values and false discovery rates (FDR) for each comparison, at [signif_hist.pdf](./signif_hist.pdf).
+We make a histogram of p-values and false discovery rates (FDR) for each comparison.
 ```{r elplot2, exercise=TRUE, exercise.eval = TRUE}
 signif_hist(tab = toptab, name = NA)
 ```
@@ -830,14 +886,18 @@ venn.tab <- ezvenn(tab=toptab, name=NA, p.cutoff = 0.05)
 
 This plot doesn't tell us which genes are in common, but `venn.tab` has this info, which we can view.
 
+```{r elplot4, exercise=TRUE, exercise.eval = TRUE}
+venn.tab[1:10,]
+```
+
 ### Heatmap
 We can make a heatmap of the top genes in `toptab.ann`.
-```{r elplot4, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot5, exercise=TRUE, exercise.eval = TRUE}
 top.genes <- rownames(toptab.ann)[1:10]
 ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, "symbol"], pheno.df = pheno, name=NA)
 ```
 
-```{r elplot4-global}
+```{r elplot5-global}
 top.genes <- rownames(toptab.ann)[1:10]
 ```
 
@@ -845,15 +905,11 @@ By default, the row scaling *centers* the rows by subtracting the row mean. Then
 
 ### Volcano plot
 We make a volcano plot for the 1st comparison, where we label the 3 most significant genes.
-```{r elplot5, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot6, exercise=TRUE, exercise.eval = TRUE}
 ezvolcano(tab=toptab.ann, ntop.sig=3, lab.col="symbol", comparison = "AvsB", name=NA)
 ```
 
-We can also make a volcano plot for all comparisons, [volcanoes.pdf](./volcanoes.pdf).
-```{r elplot6, exercise=TRUE, exercise.eval = TRUE}
-multi_volcano(tab=toptab.ann, ntop.sig = 3, lab.col="symbol")
-```
-
+We can also make a volcano plot for all comparisons as a PDF with `multi_volcano(tab=toptab.ann, ntop.sig = 3, lab.col="symbol")`.
 
 ## Conclusion
 Congratulations for making it this far. I hope this helped you become familiar enough with R so you can understand documentation, and hopefully analyze your data.
