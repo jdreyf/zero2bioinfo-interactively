@@ -4,7 +4,7 @@ author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes C
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.2.10000
+  version: 0.0.2.1007
 ---
 
 ```{r setup, include=FALSE}
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Welcome
 
-You'd like to analyze and visualize your data. Your workflow will be the most flexible, powerful, and reproducible if it involves *programming*. This type of programming is now called *data science*.
+You'd like to analyze and visualize your data. Your workflow will be the most flexible, powerful, and reproducible if it involves *programming*. This type of programming is now often called *data science*.
 
 ### Goal of tutorial
 Programming looks intimidating, but once you understand the basics, you should be able to Google questions, understand the answers, and be productive. I'll try to teach as much of the basics as I can in the hour I have to present this tutorial. You may wish to come back to it later to refresh and practice.
@@ -55,7 +55,7 @@ x <- 1+1 #nothing is displayed
 ```
 
 ### R Markdown
-This HTML is written in [R Markdown](https://rmarkdown.rstudio.com/), which weaves together text, figures, and code. You can "Knit" R Markdown documents into HTML, PDF, Microsoft Word, or other formats by pressing the "Knit" icon in R Studio. (This requires you to install the `knitr` package, which can be done with `install.packages("knitr", repos = "https://cloud.r-project.org")`, and the packages used below, `ezlimma`, `ezlimmaplot`, and `ggplot2`.)
+This HTML is written in [R Markdown](https://rmarkdown.rstudio.com/), which weaves together text, figures, and code. You can "Knit" R Markdown documents into HTML, PDF, Microsoft Word, or other formats by pressing the "Knit" icon in R Studio once you have installed all necessary packages. You can install a package, such as the `knitr` package, with `install.packages("knitr", repos = "https://cloud.r-project.org")`.
 
 ![Image from [RStudio R Markdown lesson](https://rmarkdown.rstudio.com/lesson-9.html)](./images/knit.png)
 
@@ -98,7 +98,7 @@ n+2
 ```
 
 Alternative expression of above:
-`
+
 ```{r Numeric5, exercise=TRUE, exercise.eval = TRUE}
 sum(n, 2)
 ```
@@ -273,7 +273,7 @@ A more general way than `:` to create sequences is `seq()` function. We can lear
 
 The following calls are the same:
 ```{r Vector2, exercise=TRUE, exercise.eval = TRUE}
-seq(1,4,1) #R expects arguments in the given order,
+seq(1,4,1) #R expects arguments in the given order
 ```
 
 ```{r Vector21, exercise=TRUE, exercise.eval = TRUE}
@@ -282,7 +282,7 @@ seq(to=4, from=1, by=1) #But you can name them & give in any order
 
 You don't always need to write out full argument names
 ```{r Vector22, exercise=TRUE, exercise.eval = TRUE}
-#it matches "fr" to argument "from", since no other arguments start w/ "fr"
+#R matches "fr" to argument "from", since no other arguments start w/ "fr"
 seq(to=4, fr=1, by=1)
 ```
 
@@ -345,7 +345,7 @@ b1 | b2 #or
 !b1 #not b1
 ```
 
-`which()` identifies the values that are `TRUE`
+`which()` identifies the indices of the values that are `TRUE`
 ```{r Vector44, exercise=TRUE, exercise.eval = TRUE}
 which(b1)
 ```
@@ -609,10 +609,9 @@ We'll work with a simulated gene expression matrix, such as from a microarray, w
 
 We're going to treat this data as being on the log2-scale and already *processed*. For many datasets, there are zeroes or missing values that might need to be imputed; samples need to be normalized to make them comparable and amenable to statistical tests; absent genes need to be removed; sample outliers need to be assessed to examine whether some experimental variables or batch effects need to be accounted for or the samples need to be removed or down-weighted; and trends between a gene's mean expression and its variance should be accounted for, especially in RNA-seq data [voom](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29).
 
-We simulate data for the matrix.
 ```{r ds, exercise=TRUE, exercise.eval = TRUE}
 set.seed(0) #set a seed for random sampling to get reproducible results
-gx <- matrix(rnorm(n=900), nrow=100, ncol=9)
+gx <- matrix(rnorm(n=900), nrow=100, ncol=9) #simulate data for the matrix.
 gx[1:5,]
 ```
 
@@ -689,7 +688,7 @@ annot
 ```
 
 ## Reading / writing data
-The code below write & read from the working directory on your personal computer. R assumes by default that you're reading/writing in your working directory.
+The code below writes & reads from the working directory. R assumes by default that you're reading/writing in your working directory. It works on your personal computer, but it does not work on this website.
 
 ```{r read, exercise=TRUE, exercise.eval = TRUE}
 getwd() #see working directory
@@ -778,18 +777,24 @@ ggsave(filename = "gg_scatter.pdf", plot=ggp)
 
 ### One gene at a time.
 ```{r exp, exercise=TRUE, exercise.eval = TRUE}
-t.test(gx[1, 1:3], gx[1, 4:6])$p.value #1st gene
+tt <- t.test(gx[1, 1:3], gx[1, 4:6]) #1st gene
+str(tt)
 ```
+
+Select p-value
+
+```{r exp-pv, exercise=TRUE, exercise.eval = TRUE}
+tt$p.value
+```
+
+For 2nd gene
+
 ```{r exp1, exercise=TRUE, exercise.eval = TRUE}
-t.test(gx[2, 1:3], gx[2, 4:6])$p.value #2nd gene
+t.test(gx[2, 1:3], gx[2, 4:6])$p.value
 ```
 
 ### `for` loop
-This can be automated using a `for` loop. We'll create an empty vector of `NA`s & assign the t-test p-values to that vector. This loops the variable `gene` through each of the values between 1 & 100, and applies a t-test on that row.
-
-```{r}
-pv <- rep(NA, times=100) #Global variable pv
-```
+This can be automated using a `for` loop. We'll initialize a vector with `NA`s, which will store the results, & assign the t-test p-values to that vector. This loops the variable `gene` through each of the values between 1 & 100, and applies a t-test on that row.
 
 ```{r exp02, exercise=TRUE, exercise.eval = TRUE}
 pv <- rep(NA, times=100)
@@ -807,6 +812,12 @@ pv <- apply(gx, MARGIN = 1, FUN=function(row.v){
   t.test(row.v[1:3], row.v[4:6])$p.value 
 })
 pv
+```
+
+```{r exp3-global}
+pv <- apply(gx, MARGIN = 1, FUN=function(row.v){ 
+  t.test(row.v[1:3], row.v[4:6])$p.value 
+})
 ```
 
 ## `ezlimma` package
@@ -874,11 +885,21 @@ We make a Principal Component Analysis (PCA) plot to see how samples cluster. We
 ezpca(object=gx, pheno.df=pheno, name=NA, color="grp")
 ```
 
+Axis `PC1` captures the most variance, and `PC2` is perpendicular to `PC1` and captures the 2nd most amount of variance. This is probably the best way to see lustering in two dimensions.
+
 ### Significance histograms
 We make a histogram of p-values and false discovery rates (FDR) for each comparison.
 ```{r elplot2, exercise=TRUE, exercise.eval = TRUE}
 signif_hist(tab = toptab, name = NA)
 ```
+
+We can also see what a histogram of 1,000 random p-values looks like:
+
+```{r elplot-randopv, exercise=TRUE, exercise.eval = TRUE}
+hist(x = runif(n=10^3))
+```
+
+It appears relatively flat, but not entirely.
 
 ### Venn diagram
 We can see how many genes with p <= 0.05 the comparisons have in common.
@@ -903,6 +924,8 @@ ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, "symbol"], pheno.df = p
 top.genes <- rownames(toptab.ann)[1:10]
 ```
 
+Rows are labeled by gene symbol and colorbar shows groups.
+
 By default, the row scaling *centers* the rows by subtracting the row mean. Then the new mean of every row is zero. This helps see contrast between samples, instead of between rows.
 
 ### Volcano plot
@@ -914,4 +937,4 @@ ezvolcano(tab=toptab.ann, ntop.sig=3, lab.col="symbol", comparison = "AvsB", nam
 We can also make a volcano plot for all comparisons as a PDF with `multi_volcano(tab=toptab.ann, ntop.sig = 3, lab.col="symbol")`.
 
 ## Conclusion
-Congratulations for making it this far. I hope this helped you become familiar enough with R so you can understand documentation, and hopefully analyze your data.
+Congratulations for making it this far. I hope this helped you become familiar enough with R so you can write some code, understand documentation, and hopefully analyze your data.
