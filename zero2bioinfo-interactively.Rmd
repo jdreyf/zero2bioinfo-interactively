@@ -4,7 +4,7 @@ author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes C
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.2.1008
+  version: 0.0.2.1009
 ---
 
 ```{r setup, include=FALSE}
