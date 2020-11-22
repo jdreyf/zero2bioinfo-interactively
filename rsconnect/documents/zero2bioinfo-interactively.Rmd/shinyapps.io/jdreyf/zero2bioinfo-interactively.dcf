@@ -5,9 +5,9 @@ account: jdreyf
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2561428
-bundleId: 3531546
+bundleId: 3889892
 url: https://jdreyf.shinyapps.io/zero2bioinfo-interactively/
-when: 1597788095.5472
+when: 1606020873.31729
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: images/Thumbs.db
