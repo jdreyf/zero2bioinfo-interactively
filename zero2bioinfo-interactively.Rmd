@@ -4,7 +4,7 @@ author: "Jonathan Dreyfuss PhD, Dir. Bioinfo. & Biostat. Core, Joslin Diabetes C
 output: learnr::tutorial
 runtime: shiny_prerendered
 tutorial:
-  version: 0.0.2.1011
+  version: 0.0.2.1012
 ---
 
 ```{r setup, include=FALSE}
@@ -78,10 +78,7 @@ n <- 4
 print(n) # displays the variable
 ```
 
-This assigns the value 4 to variable `x`. `<-` represents an arrow.
-```{r}
-n <- 4 #Create a global variable n=4 to be used later on.
-```
+This assigns the value 4 to variable `n`. `<-` represents an arrow.
 
 You can modify the code below to, say, `n=5` and you can see the output change when you press on the button `Run Code`. This modification will only affect the output of this exercise and no others, by design of the website. However, if you change a variable's value in R, the value will remain changed.
 
@@ -91,6 +88,10 @@ n #same as print() when not in loop or function
 ```
 
 `=` does the same thing.  `<-` is usually equivalent to `=`.
+
+```{r}
+n <- 4 #Create a global variable n=4 to be used later on.
+```
 
 ```{r Numeric4, exercise=TRUE, exercise.eval = TRUE}
 n+2
