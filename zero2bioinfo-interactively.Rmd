@@ -89,17 +89,17 @@ n #same as print() when not in loop or function
 
 `=` does the same thing.  `<-` is usually equivalent to `=`.
 
-```{r}
+```{r NumericVar}
 n <- 4 #Create a global variable n=4 to be used later on.
 ```
 
-```{r Numeric4, exercise=TRUE, exercise.eval = TRUE}
+```{r Numeric4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'NumericVar'}
 n+2
 ```
 
 Alternative expression of above:
 
-```{r Numeric5, exercise=TRUE, exercise.eval = TRUE}
+```{r Numeric5, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'NumericVar'}
 sum(n, 2)
 ```
 
@@ -124,19 +124,19 @@ b <- 4 > 5
 b
 ``` 
 
-```{r}
+```{r logicVar}
 b <- 4 > 5 #Create a global variable n1=4 > 5 (i.e. FALSE)
 ``` 
 
-```{r logic03, exercise=TRUE, exercise.eval = TRUE}
+```{r logic03, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'logicVar'}
 !b #not b
 ```
 
-```{r logic04, exercise=TRUE, exercise.eval = TRUE}
+```{r logic04, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'logicVar'}
 b | (5>4)
 ```
 
-```{r logic05, exercise=TRUE, exercise.eval = TRUE}
+```{r logic05, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'logicVar'}
 b & TRUE
 ```
 
@@ -156,13 +156,13 @@ if (z==3){
 }
 ```
 
-```{r}
+```{r logicVar2}
 z <- 3 #Create a global variable z=3
 ```
 
 We can also add an action if our condition is `FALSE`.
 
-```{r logic5, exercise=TRUE, exercise.eval = TRUE}
+```{r logic5, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'logicVar2'}
 if (z==4){ 
   print('z is 4') 
 } else {
@@ -183,12 +183,12 @@ x <- "hello"
 x
 ```
 
-```{r}
+```{r charVar}
 x <- 'hello' #Create a global variable c='hello'
 ```
 
 Can paste character strings together
-```{r char2, exercise=TRUE, exercise.eval = TRUE}
+```{r char2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'charVar'}
 paste(x, 'world')
 ```
 
@@ -198,23 +198,23 @@ This is for missing data. `NA`s can occur in any variable type and are treated s
 u <- NA #data for u is missing
 ```
 
-```{r}
+```{r NAsVar}
 u <- NA #global: data for u is missing
 ```
 
 We don't know `u`, so the result is also missing.
-```{r NAs1, exercise=TRUE, exercise.eval = TRUE}
+```{r NAs1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'NAsVar'}
 u+1
 ```
 
 We test if a value is `NA` using `is.na()`:
 
-```{r NAs2, exercise=TRUE, exercise.eval = TRUE}
+```{r NAs2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'NAsVar'}
 is.na(u)
 ```
 
 Many functions can ignore `NA`s. For example, we can ignore `NA`s in `sum`:
-```{r NAs3, exercise=TRUE, exercise.eval = TRUE}
+```{r NAs3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'NAsVar'}
 sum(u, 1, na.rm=TRUE)
 ```
 
@@ -223,7 +223,7 @@ To get help on `sum()` function, can Google: "r sum" or "sum in r". If you know 
 
 ## Change types, called *coercion*
 Functions sometimes need input to be of a particular type, for example a function may accept a character. If you instead have a number, you can coerce numbers to character.
-```{r change, exercise=TRUE, exercise.eval = TRUE}
+```{r change, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'logicVar2'}
 as.character(z)
 ```
 We can tell the output is a character because it's now in quotes.
@@ -251,7 +251,7 @@ x <- c(1, 2, 3, 4)
 x
 ```
 
-```{r}
+```{r VectorsVars}
 x <- 1:4 #Create global variables to use later on
 y <- 2*x+1 
 b1 <- y > 6 
@@ -292,70 +292,70 @@ seq(to=4, by=1) #since default has from=1
 ```
 
 ### Operations on numeric vectors
-```{r Vector3, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 y <- 2*x+1 #operates on each element of x
 y
 ```
 
-```{r Vector32, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector32, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 mean(x)
 ```
 
-```{r Vector33, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector33, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 length(x) #length of vector
 ```
 
-```{r Vector34, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector34, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 var(x) #variance
 ```
 
-```{r Vector35, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector35, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 t.test(x, y)
 ```
 
 We can repeat values using `rep()`
-```{r Vector36, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector36, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 rep(x, times=2)
 ```
 
-```{r Vector37, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector37, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 rep(x, each=2)
 ```
 
 ### Logical vectors
-```{r Vector4, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 b1 <- y > 6 #is each element of y greater than 6?
 b1
 ```
 
-```{r Vector40, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector40, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 b2 <- y == 7 #is each element of y equal to 7?
 b2
 ```
 
-```{r Vector41, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector41, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 b1 & b2 #and
 ```
 
-```{r Vector42, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector42, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 b1 | b2 #or
 ```
 
-```{r Vector43, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector43, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 !b1 #not b1
 ```
 
 `which()` identifies the indices of the values that are `TRUE`
-```{r Vector44, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector44, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 which(b1)
 ```
 
 Some functions automatically coerce logicals to numeric
-```{r Vector45, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector45, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 sum(b1)
 ```
 
-```{r Vector46, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector46, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'VectorsVars'}
 mean(b1)
 ```
 
@@ -374,7 +374,7 @@ last.names <- c('Banting', 'Best')
 ```
 
 `paste()` combines first & last names to make full names
-```{r Vector51, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector51, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vector50-global'}
 paste(first.names, last.names)
 ```
 
@@ -389,39 +389,39 @@ v
 v <- c(a=4, b=5, c=6) #Global variable
 ```
 
-```{r Vector61, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector61, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 names(v) #this is itself a vector
 ```
 
 ### Subset vectors
 We can subset with square brackets using indices or names. Two ways to select the 1st element, 
-```{r Vector7, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector7, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[1]
 ```
 
-```{r Vector70, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector70, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v["a"]
 ```
 
 We can select 2nd & 3rd element in multiple ways
-```{r Vector71, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector71, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[2:3]
 ```
 
-```{r Vector72, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector72, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[c(2,3)]
 ```
 
-```{r Vector73, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector73, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[c("b", "c")]
 ```
 
-```{r Vector74, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector74, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[c(FALSE, TRUE, TRUE)]
 ```
 
 Using `-` excludes indices. For example, `-1` returns all elements except the 1st.
-```{r Vector75, exercise=TRUE, exercise.eval = TRUE}
+```{r Vector75, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vectors6-global'}
 v[-1]
 ```
 
@@ -437,7 +437,7 @@ m1
 m1 <- matrix(1:4, ncol=2, nrow=2) #Global variable for a numeric matrix m
 ```
 
-```{r Mat02, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat02, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'Mat02-setup'}
 2*m1+1 #operates on each element
 ```
 
@@ -447,44 +447,44 @@ m2
 ```
 
 We can also create matrices by column-binding vectors using `cbind()` or row-binding vectors using `rbind()`.
-```{r Mat04, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat04, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vector50-global'}
 m <- cbind(first.names, last.names)
 m
 ```
 
-```{r}
+```{r MatVar, exercise.setup = 'vector50-global'}
 m <- cbind(first.names, last.names) ##Global variable for a character matrix m with names
 rownames(m) <- c("FB", "CB") 
 ```
 
 Matrices can have `rownames` & `colnames`
-```{r Mat2, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 colnames(m)
 ```
 
-```{r Mat22, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat22, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 rownames(m) <- c("FB", "CB") #assigning rownames to m 
 m
 ```
 
 We can subset matrices & data frames using `object[rows, columns]`. As with vectors, we can specify `rows` or `columns` using indices or names.
-```{r Mat3, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 m[1,] #1st row; leaving the columns index empty selects all columns
 ```
 
-```{r Mat30, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat30, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 m['FB',] #1st row
 ```
 
-```{r Mat31, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat31, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 m[,1] #1st column
 ```
 
-```{r Mat32, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat32, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 m[,'first.names'] #1st column
 ```
 
-```{r Mat33, exercise=TRUE, exercise.eval = TRUE}
+```{r Mat33, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 m[2,1] #2nd row, 1st column
 ```
 
@@ -492,46 +492,46 @@ m[2,1] #2nd row, 1st column
 A data frame is a table where columns can be of different types but elements within a column are of a common type, like a vector. This is the type of table you'll likely use most of the time.
 
 Can create data frame using `data.frame()`
-```{r df, exercise=TRUE, exercise.eval = TRUE}
+```{r df, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vector50-global'}
 d <- data.frame(first.names, last.names, num=1:2)
 d
 ```
 
-```{r}
+```{r dfVar, exercise.setup = 'vector50-global'}
 d <- data.frame(first.names, last.names, num=1:2, stringsAsFactors = TRUE)
 rownames(d) <- c("FB", "CB")
 ```
 
-```{r df1, exercise=TRUE, exercise.eval = TRUE}
+```{r df1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 colnames(d)
 ```
 
-```{r df2, exercise=TRUE, exercise.eval = TRUE}
+```{r df2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 rownames(d) <- c("FB", "CB")
 d
 ```
 
-```{r df3, exercise=TRUE, exercise.eval = TRUE}
+```{r df3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 d[c("FB", "CB"), 2]
 ```
 
-```{r df4, exercise=TRUE, exercise.eval = TRUE}
+```{r df4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 d[,c('first.names', 'num')]
 ```
 
 We can also use `$` for data frame columns.
-```{r df5, exercise=TRUE, exercise.eval = TRUE}
+```{r df5, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 d$first.names
 ```
 
 
 ## Object info
 Can get detailed info about objects with `summary()` or `str()`
-```{r Obj, exercise=TRUE, exercise.eval = TRUE}
+```{r Obj, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 summary(d)
 ```
 
-```{r Obj1, exercise=TRUE, exercise.eval = TRUE}
+```{r Obj1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 str(d) #shows structure
 ```
 
@@ -539,7 +539,7 @@ str(d) #shows structure
 Notice that some columns are factors. R turns characters into factors when reading/making tables by default. Factors are a special data type with levels. Factors can be difficult to use, so avoid when possible.
 
 We can coerce factors to character.
-```{r Factors, exercise=TRUE, exercise.eval = TRUE}
+```{r Factors, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dfVar'}
 d[,1] <- as.character(d[,1])
 str(d) #1st column is now character
 ```
@@ -564,7 +564,7 @@ options("stringsAsFactors")
 options(stringsAsFactors=FALSE)
 ```
 
-```{r Factors3, exercise=TRUE, exercise.eval = TRUE}
+```{r Factors3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'vector50-global'}
 d2 <- data.frame(first.names, last.names, num=1:2)
 str(d2) #no factors
 ```
@@ -576,21 +576,21 @@ l <- list(pathway1=c('gene1', 'gene2'), pathway2=c('gene3', 'gene4', 'gene5'))
 l
 ```
 
-```{r}
+```{r listsVar}
 l <- list(pathway1=c('gene1', 'gene2'), pathway2=c('gene3', 'gene4', 'gene5')) #Global list
 ```
 
 We can select using names with `$`, like columns of a data frame (a data frame is actually a list under the hood).
-```{r Lists2, exercise=TRUE, exercise.eval = TRUE}
+```{r Lists2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'listsVar'}
 l$pathway1
 ```
 
 Some functions return lists. For example, `rownames` and `colnames` of a `matrix` are together called `dimnames`, which is a list of length 2.
-```{r Lists3, exercise=TRUE, exercise.eval = TRUE}
+```{r Lists3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 dimnames(m)
 ```
 
-```{r Lists03, exercise=TRUE, exercise.eval = TRUE}
+```{r Lists03, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'MatVar'}
 length(dimnames(m))
 ```
 
@@ -621,7 +621,7 @@ gx <- matrix(rnorm(n=900), nrow=100, ncol=9)
 ```
 
 Add `rownames` & `colnames`
-```{r dsdimnms, exercise=TRUE, exercise.eval = TRUE}
+```{r dsdimnms, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'dsdimnms-setup'}
 #sep='' says not to put a space between 'gene' and the numbers
 rownames(gx) <- paste('gene', 1:100, sep='')
 
@@ -638,7 +638,7 @@ colnames(gx) <- c(paste('a', 1:3, sep=''), paste('b', 1:3, sep=''), paste('c', 1
 ```
 
 Upregulate 1st gene in group `a`.
-```{r ds1, exercise=TRUE, exercise.eval = TRUE}
+```{r ds1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-setup'}
 gx[1, 1:3] <- gx[1, 1:3]+3
 
 #Diplay first 5 rows of gx
@@ -659,21 +659,21 @@ pheno <- data.frame(grp=rep(c('a', 'b', 'c'), each=3))
 pheno
 ```
 
-```{r ds21-setup}
+```{r ds21-setup, exercise.setup = 'ds1-global'}
 pheno <- data.frame(grp=rep(c('a', 'b', 'c'), each=3)) #Global variable pheno
 ```
 
-```{r ds21, exercise=TRUE, exercise.eval = TRUE}
+```{r ds21, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds21-setup'}
 rownames(pheno) <- colnames(gx)
 pheno
 ```
 
-```{r ds21-global}
+```{r ds21-global, exercise.setup = 'ds1-global'}
 pheno <- data.frame(grp=rep(c('a', 'b', 'c'), each=3)) #Global variable pheno
 rownames(pheno) <- colnames(gx)
 ```
 
-```{r ds22, exercise=TRUE, exercise.eval = TRUE}
+```{r ds22, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 # make random gene symbols: don't worry about how I generate these
 annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
@@ -683,7 +683,7 @@ annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE),
 annot
 ```
 
-```{r ds22-global}
+```{r ds22-global, exercise.setup = 'ds1-global'}
 annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE), 
                                         sample(x=LETTERS, size=100, replace=TRUE)),
@@ -691,12 +691,12 @@ annot <- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE),
                                    size=nrow(gx), replace=TRUE))
 ```
 
-```{r ds23, exercise=TRUE, exercise.eval = TRUE}
+```{r ds23, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds22-global'}
 rownames(annot) <- rownames(gx)
 annot
 ```
 
-```{r ds23-global}
+```{r ds23-global, exercise.setup = 'ds22-global'}
 rownames(annot) <- rownames(gx)
 ```
 
@@ -708,7 +708,7 @@ getwd() #see working directory
 ```
 
 We can change working directory with `setwd()` or in RStudio under Session/Set Working Directory. Usually we write to tab-delimited text (TXT) or comma separated value (CSV). Both can be opened in Excel, and Excel can save as both formats.
-```{r write, exercise=TRUE, exercise.eval = TRUE}
+```{r write, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 write.csv(gx, "gx.csv") #now look in your working directory for the file
 
 #tables are read in by default as data frames
@@ -717,12 +717,12 @@ gx[1:5,]
 ```
 
 We coerce `gx` from data.frame to a numeric matrix. We could also do this with `data.matrix()`.
-```{r write2, exercise=TRUE, exercise.eval = TRUE}
+```{r write2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 gx_mat <- as.matrix(gx)
 gx_mat[1:5,]
 ```
 
-```{r write2-global}
+```{r write2-global, exercise.setup = 'ds1-global'}
 gx_mat <- as.matrix(gx)
 ```
 
@@ -731,19 +731,19 @@ gx_mat <- as.matrix(gx)
 Can see in RStudio in bottom right *Plots* tab
 
 `boxplot` can accept a matrix or a data frame.
-```{r box, exercise=TRUE, exercise.eval = TRUE}
+```{r box, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 boxplot(gx)
 ```
 
 `hist` requires a matrix.
 
-```{r hist, exercise=TRUE, exercise.eval = TRUE}
+```{r hist, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'write2-global'}
 hist(gx_mat)
 ```
 
 Most basic is `plot()`. It accepts a matrix or a data frame.
 
-```{r scatter, exercise=TRUE, exercise.eval = TRUE}
+```{r scatter, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 plot(x=gx[,1], y=gx[,2]) #scatter plot of a1 vs a2
 ```
 
@@ -753,7 +753,7 @@ We want axis labels to be sample names. We find out how to do this by looking at
 ```
 
 We see that the arguments we need are:
-```{r plot1, exercise=TRUE, exercise.eval = TRUE}
+```{r plot1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2])
 ```
 
@@ -763,13 +763,13 @@ We also want to reorient axis tick labels on y-axis.
 ?par #there are many par options, the one we want is "las".
 ```
 
-```{r plot3, exercise=TRUE, exercise.eval = TRUE}
+```{r plot3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
 ```
 
 ### Save plot to file
 We can use "Export" in *Plots* tab, or we can use code to open file, plot to it, then close it. We'll make a PDF with `pdf` function but we could use `png`, `jpeg`, `tiff`, etc.
-```{r plot4, exercise=TRUE, exercise.eval = TRUE}
+```{r plot4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 pdf("scatter.pdf") #open graphics device
 plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
 dev.off() #close graphics device
@@ -777,7 +777,7 @@ dev.off() #close graphics device
 
 ### ggplot2
 `ggplot2` is commonly used graphics package that makes pretty plots. You can learn more about it at [ggplot2](https://ggplot2.tidyverse.org/). It accepts data frames.
-```{r ggplot, exercise=TRUE, exercise.eval = TRUE}
+```{r ggplot, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds22-global'}
 library(ggplot2)
 gx_df <- data.frame(gx, annot)
 ggp <- ggplot(data = gx_df) + geom_point(mapping=aes(x=a1, y=a2, color=pathway))
@@ -785,7 +785,7 @@ ggp
 ```
 
 Save `ggplot2` plots to file with `ggsave()`.
-```{r ggplot1, exercise=TRUE, exercise.eval = TRUE}
+```{r ggplot1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ggplot'}
 ggsave(filename = "gg_scatter.pdf", plot=ggp)
 ```
 
@@ -797,27 +797,27 @@ ggsave(filename = "gg_scatter.pdf", plot=ggp)
 3. `apply` function
 
 ### One gene at a time.
-```{r exp, exercise=TRUE, exercise.eval = TRUE}
+```{r exp, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 tt <- t.test(gx[1, 1:3], gx[1, 4:6]) #1st gene
 str(tt)
 ```
 
 Select p-value
 
-```{r exp-pv, exercise=TRUE, exercise.eval = TRUE}
+```{r exp-pv, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'exp'}
 tt$p.value
 ```
 
 For 2nd gene
 
-```{r exp1, exercise=TRUE, exercise.eval = TRUE}
+```{r exp1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 t.test(gx[2, 1:3], gx[2, 4:6])$p.value
 ```
 
 ### `for` loop
 This can be automated using a `for` loop. We'll initialize a vector with `NA`s, which will store the results, & assign the t-test p-values to that vector. This loops the variable `gene` through each of the values between 1 & 100, and applies a t-test on that row.
 
-```{r exp02, exercise=TRUE, exercise.eval = TRUE}
+```{r exp02, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 pv <- rep(NA, times=100)
 for (gene in 1:100){
   pv[gene] <- t.test(gx[gene, 1:3], gx[gene, 4:6])$p.value
@@ -827,7 +827,7 @@ pv
 
 ### `apply`
 We can also `apply` the `t.test` function to each row.
-```{r exp3, exercise=TRUE, exercise.eval = TRUE}
+```{r exp3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds1-global'}
 # MARGIN=1 says to apply to rows
 pv <- apply(gx, MARGIN = 1, FUN=function(row.v){ 
   t.test(row.v[1:3], row.v[4:6])$p.value 
@@ -835,7 +835,7 @@ pv <- apply(gx, MARGIN = 1, FUN=function(row.v){
 pv
 ```
 
-```{r exp3-global}
+```{r exp3-global, exercise.setup = 'ds1-global'}
 pv <- apply(gx, MARGIN = 1, FUN=function(row.v){ 
   t.test(row.v[1:3], row.v[4:6])$p.value 
 })
@@ -849,13 +849,13 @@ library(ezlimma)
 # browseVignettes(package="ezlimma") # would allow you to view vignette on your personal computer
 ```
 
-```{r ezlimma1, exercise=TRUE, exercise.eval = TRUE}
+```{r ezlimma1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds21-global'}
 contrast.v <- c(AvsB='a-b', AvsC='a-c', BvsC='b-c')
 toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 toptab[1:5,]
 ```
 
-```{r ezl1-global}
+```{r ezl1-global, exercise.setup = 'ds21-global'}
 contrast.v <- c(AvsB='a-b', AvsC='a-c', BvsC='b-c')
 toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 ```
@@ -864,19 +864,19 @@ toptab <- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)
 
 When we add annotation, we make sure the rows of `toptab` match the rows of `annot` with `annot[rownames(toptab),]`.
 
-```{r ezlimma2, exercise=TRUE, exercise.eval = TRUE}
+```{r ezlimma2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezl1-global'}
 # signif() reduce the number of significant digits in toptab to 3
 toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),]) 
 toptab.ann[1:5,]
 ```
 
-```{r ezl2-global}
+```{r ezl2-global, exercise.setup = 'ezl1-global'}
 toptab.ann <- data.frame(signif(toptab, 3), annot[rownames(toptab),])
 ```
 
 In `ezlimma`, we can also test correlation of each gene to a continuous phenotype in one line of code.
 
-```{r ezlimma4, exercise=TRUE, exercise.eval = TRUE}
+```{r ezlimma4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'write2-global'}
 Y <- c(1:9)
 toptab.y <- ezcor(object = gx, phenotype = Y, prefix = "Y")
 toptab.y[1:10,]
@@ -885,7 +885,7 @@ toptab.y[1:10,]
 `toptab.y` is ordered by the significance of the correlation and gives correlation coefficient, p-value, and FDR.
 
 We can plot the top gene, gene27, vs. `Y`.
-```{r ezlimma5, exercise=TRUE, exercise.eval = TRUE}
+```{r ezlimma5, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezlimma4'}
 plot(gx_mat["gene27",], Y)
 ```
 
@@ -902,7 +902,7 @@ library(ezlimmaplot)
 ### PCA
 We make a Principal Component Analysis (PCA) plot to see how samples cluster. We use the `ezpca` function, which is based on the R package `ggplot2`. So that `ezpca` doesn't print to file, we set `name=NA` .
 
-```{r elplot1, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot1, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ds21-global'}
 ezpca(object=gx, pheno.df=pheno, name=NA, color="grp")
 ```
 
@@ -910,7 +910,7 @@ Axis `PC1` captures the most variance, and `PC2` is perpendicular to `PC1` and c
 
 ### Significance histograms
 We make a histogram of p-values and false discovery rates (FDR) for each comparison.
-```{r elplot2, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot2, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezl1-global'}
 signif_hist(tab = toptab, name = NA)
 ```
 
@@ -924,24 +924,24 @@ It appears relatively flat, but not entirely.
 
 ### Venn diagram
 We can see how many genes with p <= 0.05 the comparisons have in common.
-```{r elplot3, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot3, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezl1-global'}
 venn.tab <- ezvenn(tab=toptab, name=NA, p.cutoff = 0.05)
 ```
 
 This plot doesn't tell us which genes are in common, but `venn.tab` has this info, which we can view.
 
-```{r elplot4, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot4, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'elplot3'}
 venn.tab[1:10,]
 ```
 
 ### Heatmap
 We can make a heatmap of the top genes in `toptab.ann`.
-```{r elplot5, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot5, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezl2-global'}
 top.genes <- rownames(toptab.ann)[1:10]
 ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, "symbol"], pheno.df = pheno, name=NA)
 ```
 
-```{r elplot5-global}
+```{r elplot5-global, exercise.setup = 'ezl2-global'}
 top.genes <- rownames(toptab.ann)[1:10]
 ```
 
@@ -951,7 +951,7 @@ By default, the row scaling *centers* the rows by subtracting the row mean. Then
 
 ### Volcano plot
 We make a volcano plot for the 1st comparison, where we label the 3 most significant genes.
-```{r elplot6, exercise=TRUE, exercise.eval = TRUE}
+```{r elplot6, exercise=TRUE, exercise.eval = TRUE, exercise.setup = 'ezl2-global'}
 ezvolcano(tab=toptab.ann, ntop.sig=3, lab.col="symbol", comparison = "AvsB", name=NA)
 ```
 

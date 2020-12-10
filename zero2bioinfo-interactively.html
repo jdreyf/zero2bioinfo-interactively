@@ -213,16 +213,19 @@ n #same as print() when not in loop or function</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 <p><code>=</code> does the same thing. <code>&lt;-</code> is usually equivalent to <code>=</code>.</p>
+<div class="tutorial-exercise-support" data-label="NumericVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>n &lt;- 4 #Create a global variable n=4 to be used later on.</code></pre>
+</div>
 <div class="tutorial-exercise" data-label="Numeric4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>n+2</code></pre>
 <pre><code>[1] 6</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"NumericVar","exercise.checker":"NULL"}</script>
 </div>
 <p>Alternative expression of above:</p>
 <div class="tutorial-exercise" data-label="Numeric5" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>sum(n, 2)</code></pre>
 <pre><code>[1] 6</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"NumericVar","exercise.checker":"NULL"}</script>
 </div>
 However, R is case sensitive, so this produces an error
 <div class="tutorial-exercise" data-label="Numeric6" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -250,20 +253,23 @@ b</code></pre>
 <pre><code>[1] FALSE</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="logicVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>b &lt;- 4 &gt; 5 #Create a global variable n1=4 &gt; 5 (i.e. FALSE)</code></pre>
+</div>
 <div class="tutorial-exercise" data-label="logic03" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>!b #not b</code></pre>
 <pre><code>[1] TRUE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"logicVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="logic04" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>b | (5&gt;4)</code></pre>
 <pre><code>[1] TRUE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"logicVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="logic05" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>b &amp; TRUE</code></pre>
 <pre><code>[1] FALSE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"logicVar","exercise.checker":"NULL"}</script>
 </div>
 An easy mistake is to check equality with <code>=</code>.
 <div class="tutorial-exercise" data-label="logic2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -280,6 +286,9 @@ if (z==3){
 <pre><code>[1] &quot;z is 3&quot;</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="logicVar2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>z &lt;- 3 #Create a global variable z=3</code></pre>
+</div>
 <p>We can also add an action if our condition is <code>FALSE</code>.</p>
 <div class="tutorial-exercise" data-label="logic5" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>if (z==4){ 
@@ -288,7 +297,7 @@ if (z==3){
   print(&#39;z is not 4&#39;)
 }</code></pre>
 <pre><code>[1] &quot;z is not 4&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"logicVar2","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-characters" class="section level3">
@@ -307,11 +316,14 @@ x</code></pre>
 <pre><code>[1] &quot;hello&quot;</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="charVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>x &lt;- &#39;hello&#39; #Create a global variable c=&#39;hello&#39;</code></pre>
+</div>
 Can paste character strings together
 <div class="tutorial-exercise" data-label="char2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>paste(x, &#39;world&#39;)</code></pre>
 <pre><code>[1] &quot;hello world&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"charVar","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-na-not-available-values" class="section level3">
@@ -321,23 +333,26 @@ This is for missing data. <code>NA</code>s can occur in any variable type and ar
 <pre class="text"><code>u &lt;- NA #data for u is missing</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="NAsVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>u &lt;- NA #global: data for u is missing</code></pre>
+</div>
 We don’t know <code>u</code>, so the result is also missing.
 <div class="tutorial-exercise" data-label="NAs1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>u+1</code></pre>
 <pre><code>[1] NA</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"NAsVar","exercise.checker":"NULL"}</script>
 </div>
 <p>We test if a value is <code>NA</code> using <code>is.na()</code>:</p>
 <div class="tutorial-exercise" data-label="NAs2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>is.na(u)</code></pre>
 <pre><code>[1] TRUE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"NAsVar","exercise.checker":"NULL"}</script>
 </div>
 Many functions can ignore <code>NA</code>s. For example, we can ignore <code>NA</code>s in <code>sum</code>:
 <div class="tutorial-exercise" data-label="NAs3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>sum(u, 1, na.rm=TRUE)</code></pre>
 <pre><code>[1] 1</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"NAsVar","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -351,7 +366,7 @@ Functions sometimes need input to be of a particular type, for example a functio
 <div class="tutorial-exercise" data-label="change" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>as.character(z)</code></pre>
 <pre><code>[1] &quot;3&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"logicVar2","exercise.checker":"NULL"}</script>
 </div>
 <p>We can tell the output is a character because it’s now in quotes.</p>
 You can also change logical to numeric
@@ -379,6 +394,12 @@ We can create vectors with <code>c()</code>, which concatenates values.
 x</code></pre>
 <pre><code>[1] 1 2 3 4</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="VectorsVars" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>x &lt;- 1:4 #Create global variables to use later on
+y &lt;- 2*x+1 
+b1 &lt;- y &gt; 6 
+b2 &lt;- y == 7</code></pre>
 </div>
 We can also use <code>:</code> to create a continuous sequence
 <div class="tutorial-exercise" data-label="Vector01" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -426,22 +447,22 @@ You don’t need to specify arguments that already have the proper default
 <pre class="text"><code>y &lt;- 2*x+1 #operates on each element of x
 y</code></pre>
 <pre><code>[1] 3 5 7 9</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector32" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>mean(x)</code></pre>
 <pre><code>[1] 2.5</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector33" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>length(x) #length of vector</code></pre>
 <pre><code>[1] 4</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector34" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>var(x) #variance</code></pre>
 <pre><code>[1] 1.666667</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector35" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>t.test(x, y)</code></pre>
@@ -456,18 +477,18 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
 mean of x mean of y 
       2.5       6.0 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 We can repeat values using <code>rep()</code>
 <div class="tutorial-exercise" data-label="Vector36" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>rep(x, times=2)</code></pre>
 <pre><code>[1] 1 2 3 4 1 2 3 4</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector37" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>rep(x, each=2)</code></pre>
 <pre><code>[1] 1 1 2 2 3 3 4 4</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-logical-vectors" class="section level3">
@@ -476,45 +497,45 @@ We can repeat values using <code>rep()</code>
 <pre class="text"><code>b1 &lt;- y &gt; 6 #is each element of y greater than 6?
 b1</code></pre>
 <pre><code>[1] FALSE FALSE  TRUE  TRUE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector40" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>b2 &lt;- y == 7 #is each element of y equal to 7?
 b2</code></pre>
 <pre><code>[1] FALSE FALSE  TRUE FALSE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector41" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>b1 &amp; b2 #and</code></pre>
 <pre><code>[1] FALSE FALSE  TRUE FALSE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector42" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>b1 | b2 #or</code></pre>
 <pre><code>[1] FALSE FALSE  TRUE  TRUE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector43" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>!b1 #not b1</code></pre>
 <pre><code>[1]  TRUE  TRUE FALSE FALSE</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <code>which()</code> identifies the indices of the values that are <code>TRUE</code>
 <div class="tutorial-exercise" data-label="Vector44" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>which(b1)</code></pre>
 <pre><code>[1] 3 4</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 Some functions automatically coerce logicals to numeric
 <div class="tutorial-exercise" data-label="Vector45" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>sum(b1)</code></pre>
 <pre><code>[1] 2</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector46" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>mean(b1)</code></pre>
 <pre><code>[1] 0.5</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"VectorsVars","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-character-vectors" class="section level3">
@@ -527,11 +548,15 @@ Some functions automatically coerce logicals to numeric
 <pre class="text"><code>last.names &lt;- c(&#39;Banting&#39;, &#39;Best&#39;)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="vector50-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>first.names &lt;- c(&#39;Frederick&#39;, &#39;Charles&#39;)
+last.names &lt;- c(&#39;Banting&#39;, &#39;Best&#39;)</code></pre>
+</div>
 <code>paste()</code> combines first &amp; last names to make full names
 <div class="tutorial-exercise" data-label="Vector51" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>paste(first.names, last.names)</code></pre>
 <pre><code>[1] &quot;Frederick Banting&quot; &quot;Charles Best&quot;     </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vector50-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-names" class="section level3">
@@ -544,10 +569,13 @@ v</code></pre>
 4 5 6 </code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="vectors6-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>v &lt;- c(a=4, b=5, c=6) #Global variable</code></pre>
+</div>
 <div class="tutorial-exercise" data-label="Vector61" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>names(v) #this is itself a vector</code></pre>
 <pre><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-subset-vectors" class="section level3">
@@ -557,45 +585,45 @@ We can subset with square brackets using indices or names. Two ways to select th
 <pre class="text"><code>v[1]</code></pre>
 <pre><code>a 
 4 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector70" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[&quot;a&quot;]</code></pre>
 <pre><code>a 
 4 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 We can select 2nd &amp; 3rd element in multiple ways
 <div class="tutorial-exercise" data-label="Vector71" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[2:3]</code></pre>
 <pre><code>b c 
 5 6 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector72" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[c(2,3)]</code></pre>
 <pre><code>b c 
 5 6 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector73" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[c(&quot;b&quot;, &quot;c&quot;)]</code></pre>
 <pre><code>b c 
 5 6 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Vector74" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[c(FALSE, TRUE, TRUE)]</code></pre>
 <pre><code>b c 
 5 6 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 Using <code>-</code> excludes indices. For example, <code>-1</code> returns all elements except the 1st.
 <div class="tutorial-exercise" data-label="Vector75" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>v[-1]</code></pre>
 <pre><code>b c 
 5 6 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vectors6-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -620,7 +648,7 @@ m1</code></pre>
 <pre><code>     [,1] [,2]
 [1,]    3    7
 [2,]    5    9</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"Mat02-setup","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat03" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m2 &lt;- matrix(c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;), ncol=2, nrow=2) #creates a character matrix
@@ -637,13 +665,17 @@ m</code></pre>
 <pre><code>     first.names last.names
 [1,] &quot;Frederick&quot; &quot;Banting&quot; 
 [2,] &quot;Charles&quot;   &quot;Best&quot;    </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vector50-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="MatVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>m &lt;- cbind(first.names, last.names) ##Global variable for a character matrix m with names
+rownames(m) &lt;- c(&quot;FB&quot;, &quot;CB&quot;) </code></pre>
 </div>
 Matrices can have <code>rownames</code> &amp; <code>colnames</code>
 <div class="tutorial-exercise" data-label="Mat2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>colnames(m)</code></pre>
 <pre><code>[1] &quot;first.names&quot; &quot;last.names&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat22" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>rownames(m) &lt;- c(&quot;FB&quot;, &quot;CB&quot;) #assigning rownames to m 
@@ -651,37 +683,37 @@ m</code></pre>
 <pre><code>   first.names last.names
 FB &quot;Frederick&quot; &quot;Banting&quot; 
 CB &quot;Charles&quot;   &quot;Best&quot;    </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 We can subset matrices &amp; data frames using <code>object[rows, columns]</code>. As with vectors, we can specify <code>rows</code> or <code>columns</code> using indices or names.
 <div class="tutorial-exercise" data-label="Mat3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m[1,] #1st row; leaving the columns index empty selects all columns</code></pre>
 <pre><code>first.names  last.names 
 &quot;Frederick&quot;   &quot;Banting&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat30" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m[&#39;FB&#39;,] #1st row</code></pre>
 <pre><code>first.names  last.names 
 &quot;Frederick&quot;   &quot;Banting&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat31" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m[,1] #1st column</code></pre>
 <pre><code>         FB          CB 
 &quot;Frederick&quot;   &quot;Charles&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat32" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m[,&#39;first.names&#39;] #1st column</code></pre>
 <pre><code>         FB          CB 
 &quot;Frederick&quot;   &quot;Charles&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Mat33" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>m[2,1] #2nd row, 1st column</code></pre>
 <pre><code>[1] &quot;Charles&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-data-frames" class="section level3">
@@ -696,12 +728,16 @@ d</code></pre>
 {"columns":[{"label":["first.names"],"name":[1],"type":["chr"],"align":["left"]},{"label":["last.names"],"name":[2],"type":["chr"],"align":["left"]},{"label":["num"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Frederick","2":"Banting","3":"1"},{"1":"Charles","2":"Best","3":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vector50-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="dfVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>d &lt;- data.frame(first.names, last.names, num=1:2, stringsAsFactors = TRUE)
+rownames(d) &lt;- c(&quot;FB&quot;, &quot;CB&quot;)</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="df1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>colnames(d)</code></pre>
 <pre><code>[1] &quot;first.names&quot; &quot;last.names&quot;  &quot;num&quot;        </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="df2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>rownames(d) &lt;- c(&quot;FB&quot;, &quot;CB&quot;)
@@ -711,13 +747,13 @@ d</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["first.names"],"name":[1],"type":["fct"],"align":["left"]},{"label":["last.names"],"name":[2],"type":["fct"],"align":["left"]},{"label":["num"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Frederick","2":"Banting","3":"1","_rn_":"FB"},{"1":"Charles","2":"Best","3":"2","_rn_":"CB"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="df3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>d[c(&quot;FB&quot;, &quot;CB&quot;), 2]</code></pre>
 <pre><code>[1] Banting Best   
 Levels: Banting Best</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="df4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>d[,c(&#39;first.names&#39;, &#39;num&#39;)]</code></pre>
@@ -726,14 +762,14 @@ Levels: Banting Best</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["first.names"],"name":[1],"type":["fct"],"align":["left"]},{"label":["num"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Frederick","2":"1","_rn_":"FB"},{"1":"Charles","2":"2","_rn_":"CB"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 We can also use <code>$</code> for data frame columns.
 <div class="tutorial-exercise" data-label="df5" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>d$first.names</code></pre>
 <pre><code>[1] Frederick Charles  
 Levels: Charles Frederick</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -749,7 +785,7 @@ Can get detailed info about objects with <code>summary()</code> or <code>str()</
                              Mean   :1.50  
                              3rd Qu.:1.75  
                              Max.   :2.00  </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Obj1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>str(d) #shows structure</code></pre>
@@ -757,7 +793,7 @@ Can get detailed info about objects with <code>summary()</code> or <code>str()</
  $ first.names: Factor w/ 2 levels &quot;Charles&quot;,&quot;Frederick&quot;: 2 1
  $ last.names : Factor w/ 2 levels &quot;Banting&quot;,&quot;Best&quot;: 1 2
  $ num        : int  1 2</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <div id="section-factors" class="section level3">
 <h3>Factors</h3>
@@ -770,7 +806,7 @@ str(d) #1st column is now character</code></pre>
  $ first.names: chr  &quot;Frederick&quot; &quot;Charles&quot;
  $ last.names : Factor w/ 2 levels &quot;Banting&quot;,&quot;Best&quot;: 1 2
  $ num        : int  1 2</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dfVar","exercise.checker":"NULL"}</script>
 </div>
 <p>We can also prevent R from turning characters into factors by setting a global option</p>
 <div class="tutorial-exercise-support" data-label="saf-true" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -799,7 +835,7 @@ str(d2) #no factors</code></pre>
  $ first.names: chr  &quot;Frederick&quot; &quot;Charles&quot;
  $ last.names : chr  &quot;Banting&quot; &quot;Best&quot;
  $ num        : int  1 2</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"vector50-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -816,11 +852,14 @@ $pathway2
 [1] &quot;gene3&quot; &quot;gene4&quot; &quot;gene5&quot;</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="listsVar" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>l &lt;- list(pathway1=c(&#39;gene1&#39;, &#39;gene2&#39;), pathway2=c(&#39;gene3&#39;, &#39;gene4&#39;, &#39;gene5&#39;)) #Global list</code></pre>
+</div>
 We can select using names with <code>$</code>, like columns of a data frame (a data frame is actually a list under the hood).
 <div class="tutorial-exercise" data-label="Lists2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>l$pathway1</code></pre>
 <pre><code>[1] &quot;gene1&quot; &quot;gene2&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"listsVar","exercise.checker":"NULL"}</script>
 </div>
 Some functions return lists. For example, <code>rownames</code> and <code>colnames</code> of a <code>matrix</code> are together called <code>dimnames</code>, which is a list of length 2.
 <div class="tutorial-exercise" data-label="Lists3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -830,12 +869,12 @@ Some functions return lists. For example, <code>rownames</code> and <code>colnam
 
 [[2]]
 [1] &quot;first.names&quot; &quot;last.names&quot; </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise" data-label="Lists03" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>length(dimnames(m))</code></pre>
 <pre><code>[1] 2</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"MatVar","exercise.checker":"NULL"}</script>
 </div>
 Another function that returns a list is correlation with <code>cor.test()</code>.
 <div class="tutorial-exercise" data-label="Lists4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -895,7 +934,7 @@ gene2  0.6476460  0.3792931 -1.6693444
 gene3  0.4487942 -0.3107409  1.3792361
 gene4  1.0263022  0.8863900 -0.9196746
 gene5  1.0749782 -1.6418647 -0.5044900</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"dsdimnms-setup","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="ds1-setup" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>set.seed(0) #Create a global dataset
@@ -921,7 +960,14 @@ gene2  0.6476460  0.3792931 -1.6693444
 gene3  0.4487942 -0.3107409  1.3792361
 gene4  1.0263022  0.8863900 -0.9196746
 gene5  1.0749782 -1.6418647 -0.5044900</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-setup","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ds1-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>set.seed(0) #set a seed for random sampling to get reproducible results
+gx &lt;- matrix(rnorm(n=900), nrow=100, ncol=9)
+gx[1, 1:3] &lt;- gx[1, 1:3]+3
+rownames(gx) &lt;- paste(&#39;gene&#39;, 1:100, sep=&#39;&#39;)
+colnames(gx) &lt;- c(paste(&#39;a&#39;, 1:3, sep=&#39;&#39;), paste(&#39;b&#39;, 1:3, sep=&#39;&#39;), paste(&#39;c&#39;, 1:3, sep=&#39;&#39;))</code></pre>
 </div>
 We create matching phenotype &amp; annotation data frames.
 <div class="tutorial-exercise" data-label="ds2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -945,7 +991,11 @@ pheno</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["grp"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"a","_rn_":"a1"},{"1":"a","_rn_":"a2"},{"1":"a","_rn_":"a3"},{"1":"b","_rn_":"b1"},{"1":"b","_rn_":"b2"},{"1":"b","_rn_":"b3"},{"1":"c","_rn_":"c1"},{"1":"c","_rn_":"c2"},{"1":"c","_rn_":"c3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds21-setup","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ds21-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>pheno &lt;- data.frame(grp=rep(c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;), each=3)) #Global variable pheno
+rownames(pheno) &lt;- colnames(gx)</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="ds22" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code># make random gene symbols: don&#39;t worry about how I generate these
@@ -960,7 +1010,14 @@ annot</code></pre>
 {"columns":[{"label":["symbol"],"name":[1],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"HJN","2":"glycolysis"},{"1":"FYA","2":"glycolysis"},{"1":"WOJ","2":"glycolysis"},{"1":"YUF","2":"none"},{"1":"XQU","2":"oxphos"},{"1":"RTB","2":"none"},{"1":"UAN","2":"none"},{"1":"SGD","2":"tca cycle"},{"1":"OFP","2":"glycolysis"},{"1":"RDO","2":"none"},{"1":"JXH","2":"tca cycle"},{"1":"YMW","2":"tca cycle"},{"1":"TUX","2":"tca cycle"},{"1":"PEC","2":"glycolysis"},{"1":"KHK","2":"tca cycle"},{"1":"FZR","2":"oxphos"},{"1":"KFJ","2":"glycolysis"},{"1":"LZK","2":"none"},{"1":"ZQR","2":"oxphos"},{"1":"ZTD","2":"oxphos"},{"1":"TWT","2":"tca cycle"},{"1":"IJY","2":"oxphos"},{"1":"VOP","2":"glycolysis"},{"1":"IYM","2":"oxphos"},{"1":"FHT","2":"glycolysis"},{"1":"CKY","2":"glycolysis"},{"1":"VCA","2":"oxphos"},{"1":"LYP","2":"none"},{"1":"ZMB","2":"tca cycle"},{"1":"ZVZ","2":"none"},{"1":"RUD","2":"none"},{"1":"CBV","2":"tca cycle"},{"1":"QNN","2":"glycolysis"},{"1":"TXF","2":"glycolysis"},{"1":"ZGP","2":"oxphos"},{"1":"ZEU","2":"none"},{"1":"HDR","2":"tca cycle"},{"1":"TOZ","2":"none"},{"1":"MBY","2":"tca cycle"},{"1":"HYB","2":"none"},{"1":"KGY","2":"glycolysis"},{"1":"XHE","2":"none"},{"1":"VAR","2":"tca cycle"},{"1":"OHE","2":"oxphos"},{"1":"DIT","2":"glycolysis"},{"1":"HKY","2":"none"},{"1":"TOJ","2":"oxphos"},{"1":"RHV","2":"none"},{"1":"HQB","2":"oxphos"},{"1":"MRV","2":"oxphos"},{"1":"LPY","2":"none"},{"1":"IXO","2":"none"},{"1":"IOI","2":"none"},{"1":"OVV","2":"oxphos"},{"1":"VVJ","2":"none"},{"1":"NEU","2":"oxphos"},{"1":"YBX","2":"none"},{"1":"GSN","2":"oxphos"},{"1":"NGT","2":"glycolysis"},{"1":"VIH","2":"glycolysis"},{"1":"UOB","2":"oxphos"},{"1":"UOS","2":"tca cycle"},{"1":"QIX","2":"oxphos"},{"1":"KZM","2":"oxphos"},{"1":"COK","2":"oxphos"},{"1":"OOU","2":"glycolysis"},{"1":"LOI","2":"none"},{"1":"YCB","2":"tca cycle"},{"1":"BRI","2":"oxphos"},{"1":"SDK","2":"glycolysis"},{"1":"PUH","2":"none"},{"1":"THX","2":"none"},{"1":"MWF","2":"tca cycle"},{"1":"XTD","2":"oxphos"},{"1":"TQJ","2":"oxphos"},{"1":"MPI","2":"glycolysis"},{"1":"FFL","2":"none"},{"1":"ROG","2":"oxphos"},{"1":"CSB","2":"glycolysis"},{"1":"PMM","2":"oxphos"},{"1":"VFK","2":"tca cycle"},{"1":"KOG","2":"tca cycle"},{"1":"RXE","2":"glycolysis"},{"1":"BJI","2":"glycolysis"},{"1":"DSJ","2":"glycolysis"},{"1":"WKC","2":"glycolysis"},{"1":"WZK","2":"oxphos"},{"1":"PKB","2":"none"},{"1":"ACI","2":"glycolysis"},{"1":"POG","2":"oxphos"},{"1":"JDQ","2":"tca cycle"},{"1":"ZLX","2":"tca cycle"},{"1":"DRX","2":"tca cycle"},{"1":"JIU","2":"tca cycle"},{"1":"WSU","2":"glycolysis"},{"1":"OUM","2":"glycolysis"},{"1":"WBJ","2":"glycolysis"},{"1":"MZJ","2":"none"},{"1":"GIN","2":"none"},{"1":"NZC","2":"glycolysis"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ds22-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>annot &lt;- data.frame(symbol=paste0(sample(x=LETTERS, size=100, replace=TRUE), 
+                                        sample(x=LETTERS, size=100, replace=TRUE), 
+                                        sample(x=LETTERS, size=100, replace=TRUE)),
+                    pathway=sample(x=c(&quot;oxphos&quot;, &quot;glycolysis&quot;, &quot;tca cycle&quot;, &quot;none&quot;), 
+                                   size=nrow(gx), replace=TRUE))</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="ds23" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>rownames(annot) &lt;- rownames(gx)
@@ -970,7 +1027,7 @@ annot</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["symbol"],"name":[1],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"EUM","2":"oxphos","_rn_":"gene1"},{"1":"DTZ","2":"tca cycle","_rn_":"gene2"},{"1":"RCL","2":"tca cycle","_rn_":"gene3"},{"1":"DCE","2":"none","_rn_":"gene4"},{"1":"SCL","2":"glycolysis","_rn_":"gene5"},{"1":"SVR","2":"tca cycle","_rn_":"gene6"},{"1":"HEZ","2":"tca cycle","_rn_":"gene7"},{"1":"WBA","2":"none","_rn_":"gene8"},{"1":"MDX","2":"tca cycle","_rn_":"gene9"},{"1":"VFG","2":"oxphos","_rn_":"gene10"},{"1":"BYS","2":"none","_rn_":"gene11"},{"1":"UPO","2":"glycolysis","_rn_":"gene12"},{"1":"EKR","2":"oxphos","_rn_":"gene13"},{"1":"MWM","2":"oxphos","_rn_":"gene14"},{"1":"LHS","2":"tca cycle","_rn_":"gene15"},{"1":"RLL","2":"none","_rn_":"gene16"},{"1":"LUB","2":"none","_rn_":"gene17"},{"1":"YBI","2":"oxphos","_rn_":"gene18"},{"1":"LTO","2":"tca cycle","_rn_":"gene19"},{"1":"ITX","2":"oxphos","_rn_":"gene20"},{"1":"WCM","2":"glycolysis","_rn_":"gene21"},{"1":"NZJ","2":"none","_rn_":"gene22"},{"1":"ZBA","2":"none","_rn_":"gene23"},{"1":"LGT","2":"tca cycle","_rn_":"gene24"},{"1":"NKO","2":"glycolysis","_rn_":"gene25"},{"1":"TEV","2":"glycolysis","_rn_":"gene26"},{"1":"KGX","2":"tca cycle","_rn_":"gene27"},{"1":"LRE","2":"glycolysis","_rn_":"gene28"},{"1":"XMC","2":"none","_rn_":"gene29"},{"1":"UUP","2":"oxphos","_rn_":"gene30"},{"1":"PKR","2":"tca cycle","_rn_":"gene31"},{"1":"IKW","2":"tca cycle","_rn_":"gene32"},{"1":"NED","2":"tca cycle","_rn_":"gene33"},{"1":"KSQ","2":"none","_rn_":"gene34"},{"1":"YHC","2":"none","_rn_":"gene35"},{"1":"NQE","2":"none","_rn_":"gene36"},{"1":"OKU","2":"glycolysis","_rn_":"gene37"},{"1":"GOG","2":"oxphos","_rn_":"gene38"},{"1":"HRX","2":"tca cycle","_rn_":"gene39"},{"1":"BNQ","2":"glycolysis","_rn_":"gene40"},{"1":"PEJ","2":"tca cycle","_rn_":"gene41"},{"1":"NEQ","2":"none","_rn_":"gene42"},{"1":"RVB","2":"tca cycle","_rn_":"gene43"},{"1":"BRN","2":"glycolysis","_rn_":"gene44"},{"1":"SHP","2":"oxphos","_rn_":"gene45"},{"1":"VJN","2":"oxphos","_rn_":"gene46"},{"1":"JSC","2":"glycolysis","_rn_":"gene47"},{"1":"LMX","2":"none","_rn_":"gene48"},{"1":"XKA","2":"none","_rn_":"gene49"},{"1":"KFA","2":"glycolysis","_rn_":"gene50"},{"1":"ERE","2":"glycolysis","_rn_":"gene51"},{"1":"AMB","2":"tca cycle","_rn_":"gene52"},{"1":"LON","2":"tca cycle","_rn_":"gene53"},{"1":"LSJ","2":"oxphos","_rn_":"gene54"},{"1":"CJJ","2":"none","_rn_":"gene55"},{"1":"ZUP","2":"oxphos","_rn_":"gene56"},{"1":"ORX","2":"none","_rn_":"gene57"},{"1":"SXK","2":"glycolysis","_rn_":"gene58"},{"1":"LRP","2":"oxphos","_rn_":"gene59"},{"1":"LNS","2":"glycolysis","_rn_":"gene60"},{"1":"KGP","2":"tca cycle","_rn_":"gene61"},{"1":"IEX","2":"none","_rn_":"gene62"},{"1":"ZDD","2":"glycolysis","_rn_":"gene63"},{"1":"GNE","2":"tca cycle","_rn_":"gene64"},{"1":"ORQ","2":"oxphos","_rn_":"gene65"},{"1":"VPZ","2":"none","_rn_":"gene66"},{"1":"UUJ","2":"glycolysis","_rn_":"gene67"},{"1":"EWE","2":"oxphos","_rn_":"gene68"},{"1":"CVB","2":"none","_rn_":"gene69"},{"1":"FIP","2":"none","_rn_":"gene70"},{"1":"FJK","2":"tca cycle","_rn_":"gene71"},{"1":"JJL","2":"oxphos","_rn_":"gene72"},{"1":"CTU","2":"none","_rn_":"gene73"},{"1":"MOI","2":"none","_rn_":"gene74"},{"1":"KNG","2":"none","_rn_":"gene75"},{"1":"TPO","2":"tca cycle","_rn_":"gene76"},{"1":"RYD","2":"none","_rn_":"gene77"},{"1":"OIG","2":"none","_rn_":"gene78"},{"1":"NGB","2":"tca cycle","_rn_":"gene79"},{"1":"QQQ","2":"glycolysis","_rn_":"gene80"},{"1":"XTW","2":"glycolysis","_rn_":"gene81"},{"1":"LWI","2":"oxphos","_rn_":"gene82"},{"1":"IFW","2":"tca cycle","_rn_":"gene83"},{"1":"PKR","2":"oxphos","_rn_":"gene84"},{"1":"CTU","2":"oxphos","_rn_":"gene85"},{"1":"YSX","2":"tca cycle","_rn_":"gene86"},{"1":"XHZ","2":"oxphos","_rn_":"gene87"},{"1":"ODJ","2":"glycolysis","_rn_":"gene88"},{"1":"IWL","2":"tca cycle","_rn_":"gene89"},{"1":"GIB","2":"tca cycle","_rn_":"gene90"},{"1":"IXQ","2":"tca cycle","_rn_":"gene91"},{"1":"RJI","2":"oxphos","_rn_":"gene92"},{"1":"GGB","2":"none","_rn_":"gene93"},{"1":"WIA","2":"glycolysis","_rn_":"gene94"},{"1":"LNY","2":"tca cycle","_rn_":"gene95"},{"1":"VTK","2":"tca cycle","_rn_":"gene96"},{"1":"DXV","2":"tca cycle","_rn_":"gene97"},{"1":"IQN","2":"none","_rn_":"gene98"},{"1":"RBM","2":"tca cycle","_rn_":"gene99"},{"1":"RUU","2":"oxphos","_rn_":"gene100"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds22-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-reading-writing-data" class="section level2">
@@ -993,7 +1050,7 @@ gx[1:5,]</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["a2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["a3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["b1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["b2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["b3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["c1"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["c2"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["c3"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"4.2629543","2":"3.7818592","3":"1.9542823","4":"-0.1244350","5":"-0.3900096","6":"-0.6263682","7":"-1.6878010","8":"0.5812010","9":"-1.4240317","_rn_":"gene1"},{"1":"-0.3262334","2":"-0.7767766","3":"-0.8962113","4":"1.4667446","5":"-1.8192222","6":"0.4813353","7":"0.6476460","8":"0.3792931","9":"-1.6693444","_rn_":"gene2"},{"1":"1.3297993","2":"-0.6159899","3":"1.2693872","4":"0.6739287","5":"0.6591807","6":"1.6952711","7":"0.4487942","8":"-0.3107409","9":"1.3792361","_rn_":"gene3"},{"1":"1.2724293","2":"0.0465803","3":"0.5938409","4":"1.9564253","5":"0.4596217","6":"-1.7612263","7":"1.0263022","8":"0.8863900","9":"-0.9196746","_rn_":"gene4"},{"1":"0.4146414","2":"-1.1303858","3":"0.7756343","4":"-0.2690410","5":"1.6166263","6":"0.1980130","7":"1.0749782","8":"-1.6418647","9":"-0.5044900","_rn_":"gene5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 We coerce <code>gx</code> from data.frame to a numeric matrix. We could also do this with <code>data.matrix()</code>.
 <div class="tutorial-exercise" data-label="write2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1011,7 +1068,10 @@ gene2  0.6476460  0.3792931 -1.6693444
 gene3  0.4487942 -0.3107409  1.3792361
 gene4  1.0263022  0.8863900 -0.9196746
 gene5  1.0749782 -1.6418647 -0.5044900</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="write2-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>gx_mat &lt;- as.matrix(gx)</code></pre>
 </div>
 </div>
 <div id="section-plots" class="section level2">
@@ -1023,19 +1083,19 @@ gene5  1.0749782 -1.6418647 -0.5044900</code></pre>
 <div class="tutorial-exercise" data-label="box" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>boxplot(gx)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/box-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 <p><code>hist</code> requires a matrix.</p>
 <div class="tutorial-exercise" data-label="hist" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>hist(gx_mat)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/hist-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"write2-global","exercise.checker":"NULL"}</script>
 </div>
 <p>Most basic is <code>plot()</code>. It accepts a matrix or a data frame.</p>
 <div class="tutorial-exercise" data-label="scatter" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>plot(x=gx[,1], y=gx[,2]) #scatter plot of a1 vs a2</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/scatter-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 We want axis labels to be sample names. We find out how to do this by looking at
 <div class="tutorial-exercise" data-label="plot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1046,7 +1106,7 @@ We see that the arguments we need are:
 <div class="tutorial-exercise" data-label="plot1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2])</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/plot1-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 We also want to reorient axis tick labels on y-axis.
 <div class="tutorial-exercise" data-label="plot2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1057,7 +1117,7 @@ We also want to reorient axis tick labels on y-axis.
 <div class="tutorial-exercise" data-label="plot3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/plot3-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-save-plot-to-file" class="section level3">
@@ -1069,7 +1129,7 @@ plot(x=gx[,1], y=gx[,2], xlab=colnames(gx)[1], ylab=colnames(gx)[2], las=1)
 dev.off() #close graphics device</code></pre>
 <pre><code>png 
   2 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-ggplot2" class="section level3">
@@ -1081,13 +1141,13 @@ gx_df &lt;- data.frame(gx, annot)
 ggp &lt;- ggplot(data = gx_df) + geom_point(mapping=aes(x=a1, y=a2, color=pathway))
 ggp</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/ggplot-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds22-global","exercise.checker":"NULL"}</script>
 </div>
 Save <code>ggplot2</code> plots to file with <code>ggsave()</code>.
 <div class="tutorial-exercise" data-label="ggplot1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>ggsave(filename = &quot;gg_scatter.pdf&quot;, plot=ggp)</code></pre>
 <pre><code>Saving 6.5 x 4 in image</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ggplot","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -1123,19 +1183,19 @@ str(tt)</code></pre>
  $ method     : chr &quot;Welch Two Sample t-test&quot;
  $ data.name  : chr &quot;gx[1, 1:3] and gx[1, 4:6]&quot;
  - attr(*, &quot;class&quot;)= chr &quot;htest&quot;</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 <p>Select p-value</p>
 <div class="tutorial-exercise" data-label="exp-pv" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>tt$p.value</code></pre>
 <pre><code>[1] 0.02976692</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"exp","exercise.checker":"NULL"}</script>
 </div>
 <p>For 2nd gene</p>
 <div class="tutorial-exercise" data-label="exp1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>t.test(gx[2, 1:3], gx[2, 4:6])$p.value</code></pre>
 <pre><code>[1] 0.5437477</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-for-loop" class="section level3">
@@ -1164,7 +1224,7 @@ pv</code></pre>
  [85] 0.705660075 0.685685565 0.582489217 0.099113410 0.085386177 0.852165026
  [91] 0.927472764 0.538315523 0.824463284 0.884896045 0.102699386 0.068773293
  [97] 0.568243008 0.179388955 0.161335790 0.831101497</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-apply" class="section level3">
@@ -1210,7 +1270,7 @@ pv</code></pre>
 0.927472764 0.538315523 0.824463284 0.884896045 0.102699386 0.068773293 
      gene97      gene98      gene99     gene100 
 0.568243008 0.179388955 0.161335790 0.831101497 </code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds1-global","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
@@ -1231,7 +1291,11 @@ toptab[1:5,]</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a.avg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["b.avg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["c.avg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AvsB.p"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["AvsB.FDR"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AvsB.logFC"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["AvsB.FC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AvsC.p"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["AvsC.FDR"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["AvsC.logFC"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["AvsC.FC"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["BvsC.p"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BvsC.FDR"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BvsC.logFC"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BvsC.FC"],"name":[15],"type":["dbl"],"align":["right"]}],"data":[{"1":"3.3330319","2":"-0.3802709","3":"-0.8435439","4":"3.538259e-05","5":"0.003538259","6":"3.7133029","7":"13.116427","8":"6.007501e-06","9":"0.0006007501","10":"4.17657582","11":"18.083172","12":"0.556963495","13":"0.8829704","14":"0.463273","15":"1.378666","_rn_":"gene1"},{"1":"-1.6957995","2":"-0.3125689","3":"0.8487046","4":"7.657727e-02","5":"0.768918710","6":"-1.3832307","7":"-2.608518","8":"1.933537e-03","9":"0.0966768581","10":"-2.54450412","11":"-5.834076","12":"0.134451487","13":"0.7686915","14":"-1.161273","15":"-2.236548","_rn_":"gene45"},{"1":"-0.1537492","2":"1.1885321","3":"-1.2403889","4":"7.931177e-02","5":"0.768918710","6":"-1.3422813","7":"-2.535519","8":"1.522778e-01","9":"0.9231381566","10":"1.08663972","11":"2.123788","12":"0.002441228","13":"0.2441228","14":"2.428921","15":"5.384905","_rn_":"gene18"},{"1":"0.8129933","2":"0.5826046","3":"-1.1551853","4":"7.543675e-01","5":"0.912431457","6":"0.2303888","7":"1.173151","8":"1.085692e-02","9":"0.3618971872","10":"1.96817860","11":"3.912738","12":"0.023088331","13":"0.5772083","14":"1.737790","15":"3.335238","_rn_":"gene27"},{"1":"1.1542050","2":"-0.7501004","3":"1.2173763","4":"1.715605e-02","5":"0.397289830","6":"1.9043054","7":"3.743286","8":"9.342426e-01","9":"0.9533088002","10":"-0.06317128","11":"-1.044760","12":"0.014056004","13":"0.5772083","14":"-1.967477","15":"-3.910835","_rn_":"gene66"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds21-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ezl1-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>contrast.v &lt;- c(AvsB=&#39;a-b&#39;, AvsC=&#39;a-c&#39;, BvsC=&#39;b-c&#39;)
+toptab &lt;- limma_contrasts(object=gx, grp=pheno$grp, contrast.v = contrast.v)</code></pre>
 </div>
 <p><code>toptab</code> is ordered by combined significance of the 3 tests.</p>
 <p>When we add annotation, we make sure the rows of <code>toptab</code> match the rows of <code>annot</code> with <code>annot[rownames(toptab),]</code>.</p>
@@ -1244,7 +1308,10 @@ toptab.ann[1:5,]</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a.avg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["b.avg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["c.avg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AvsB.p"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["AvsB.FDR"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AvsB.logFC"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["AvsB.FC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AvsC.p"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["AvsC.FDR"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["AvsC.logFC"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["AvsC.FC"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["BvsC.p"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BvsC.FDR"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BvsC.logFC"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BvsC.FC"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["symbol"],"name":[16],"type":["chr"],"align":["left"]},{"label":["pathway"],"name":[17],"type":["chr"],"align":["left"]}],"data":[{"1":"3.330","2":"-0.380","3":"-0.844","4":"3.54e-05","5":"0.00354","6":"3.71","7":"13.10","8":"6.01e-06","9":"0.000601","10":"4.1800","11":"18.10","12":"0.55700","13":"0.883","14":"0.463","15":"1.38","16":"EUM","17":"oxphos","_rn_":"gene1"},{"1":"-1.700","2":"-0.313","3":"0.849","4":"7.66e-02","5":"0.76900","6":"-1.38","7":"-2.61","8":"1.93e-03","9":"0.096700","10":"-2.5400","11":"-5.83","12":"0.13400","13":"0.769","14":"-1.160","15":"-2.24","16":"SHP","17":"oxphos","_rn_":"gene45"},{"1":"-0.154","2":"1.190","3":"-1.240","4":"7.93e-02","5":"0.76900","6":"-1.34","7":"-2.54","8":"1.52e-01","9":"0.923000","10":"1.0900","11":"2.12","12":"0.00244","13":"0.244","14":"2.430","15":"5.38","16":"YBI","17":"oxphos","_rn_":"gene18"},{"1":"0.813","2":"0.583","3":"-1.160","4":"7.54e-01","5":"0.91200","6":"0.23","7":"1.17","8":"1.09e-02","9":"0.362000","10":"1.9700","11":"3.91","12":"0.02310","13":"0.577","14":"1.740","15":"3.34","16":"KGX","17":"tca cycle","_rn_":"gene27"},{"1":"1.150","2":"-0.750","3":"1.220","4":"1.72e-02","5":"0.39700","6":"1.90","7":"3.74","8":"9.34e-01","9":"0.953000","10":"-0.0632","11":"-1.04","12":"0.01410","13":"0.577","14":"-1.970","15":"-3.91","16":"VPZ","17":"none","_rn_":"gene66"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezl1-global","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ezl2-global" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>toptab.ann &lt;- data.frame(signif(toptab, 3), annot[rownames(toptab),])</code></pre>
 </div>
 <p>In <code>ezlimma</code>, we can also test correlation of each gene to a continuous phenotype in one line of code.</p>
 <div class="tutorial-exercise" data-label="ezlimma4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1262,14 +1329,14 @@ gene9   0.6903628 0.039537947 0.5410796
 gene10 -0.6813487 0.043286370 0.5410796
 gene80  0.6571233 0.054468606 0.6052067
 gene90 -0.6128998 0.079270647 0.7927065</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"write2-global","exercise.checker":"NULL"}</script>
 </div>
 <p><code>toptab.y</code> is ordered by the significance of the correlation and gives correlation coefficient, p-value, and FDR.</p>
 We can plot the top gene, gene27, vs. <code>Y</code>.
 <div class="tutorial-exercise" data-label="ezlimma5" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>plot(gx_mat[&quot;gene27&quot;,], Y)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/ezlimma5-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezlimma4","exercise.checker":"NULL"}</script>
 </div>
 <p>For pathway analysis, <code>ezlimma</code> extends <code>limma</code> pathway analyses to write linked Excel files, as explained in the <code>ezlimma</code> vignette.</p>
 </div>
@@ -1287,7 +1354,7 @@ We can plot the top gene, gene27, vs. <code>Y</code>.
 <div class="tutorial-exercise" data-label="elplot1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>ezpca(object=gx, pheno.df=pheno, name=NA, color=&quot;grp&quot;)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/elplot1-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ds21-global","exercise.checker":"NULL"}</script>
 </div>
 <p>Axis <code>PC1</code> captures the most variance, and <code>PC2</code> is perpendicular to <code>PC1</code> and captures the 2nd most amount of variance. This is probably the best way to see lustering in two dimensions.</p>
 </div>
@@ -1297,7 +1364,7 @@ We make a histogram of p-values and false discovery rates (FDR) for each compari
 <div class="tutorial-exercise" data-label="elplot2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>signif_hist(tab = toptab, name = NA)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/elplot2-1.png" width="624" /><img src="zero2bioinfo-interactively_files/figure-html/elplot2-2.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezl1-global","exercise.checker":"NULL"}</script>
 </div>
 <p>We can also see what a histogram of 1,000 random p-values looks like:</p>
 <div class="tutorial-exercise" data-label="elplot-randopv" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1313,7 +1380,7 @@ We can see how many genes with p &lt;= 0.05 the comparisons have in common.
 <div class="tutorial-exercise" data-label="elplot3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>venn.tab &lt;- ezvenn(tab=toptab, name=NA, p.cutoff = 0.05)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/elplot3-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezl1-global","exercise.checker":"NULL"}</script>
 </div>
 <p>This plot doesn’t tell us which genes are in common, but <code>venn.tab</code> has this info, which we can view.</p>
 <div class="tutorial-exercise" data-label="elplot4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1323,7 +1390,7 @@ We can see how many genes with p &lt;= 0.05 the comparisons have in common.
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["AvsB.sig"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AvsC.sig"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["BvsC.sig"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"0","_rn_":"gene1"},{"1":"0","2":"1","3":"1","_rn_":"gene27"},{"1":"1","2":"0","3":"-1","_rn_":"gene66"},{"1":"1","2":"0","3":"-1","_rn_":"gene96"},{"1":"0","2":"-1","3":"0","_rn_":"gene45"},{"1":"0","2":"0","3":"1","_rn_":"gene18"},{"1":"-1","2":"0","3":"0","_rn_":"gene88"},{"1":"0","2":"1","3":"0","_rn_":"gene10"},{"1":"0","2":"-1","3":"0","_rn_":"gene46"},{"1":"1","2":"0","3":"0","_rn_":"gene54"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"elplot3","exercise.checker":"NULL"}</script>
 </div>
 </div>
 <div id="section-heatmap" class="section level3">
@@ -1333,7 +1400,7 @@ We can make a heatmap of the top genes in <code>toptab.ann</code>.
 <pre class="text"><code>top.genes &lt;- rownames(toptab.ann)[1:10]
 ezheat(object = gx[top.genes,], labrows=toptab.ann[1:10, &quot;symbol&quot;], pheno.df = pheno, name=NA)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/elplot5-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezl2-global","exercise.checker":"NULL"}</script>
 </div>
 <p>Rows are labeled by gene symbol and colorbar shows groups.</p>
 <p>By default, the row scaling <em>centers</em> the rows by subtracting the row mean. Then the new mean of every row is zero. This helps see contrast between samples, instead of between rows.</p>
@@ -1344,7 +1411,7 @@ We make a volcano plot for the 1st comparison, where we label the 3 most signifi
 <div class="tutorial-exercise" data-label="elplot6" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>ezvolcano(tab=toptab.ann, ntop.sig=3, lab.col=&quot;symbol&quot;, comparison = &quot;AvsB&quot;, name=NA)</code></pre>
 <img src="zero2bioinfo-interactively_files/figure-html/elplot6-1.png" width="624" />
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"ezl2-global","exercise.checker":"NULL"}</script>
 </div>
 <p>We can also make a volcano plot for all comparisons as a PDF with <code>multi_volcano(tab=toptab.ann, ntop.sig = 3, lab.col="symbol")</code>.</p>
 </div>
@@ -2276,7 +2343,7 @@ output$`tutorial-exercise-elplot6-output` <- renderUI({
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63]}},"value":[{"type":"character","attributes":{},"value":["base","BiocManager","colorspace","compiler","crayon","datasets","digest","dplyr","ellipsis","evaluate","ezlimma","ezlimmaplot","farver","fastmap","generics","ggplot2","ggrepel","glue","graphics","grDevices","grid","gtable","Hitman","htmltools","htmlwidgets","httpuv","jsonlite","knitr","labeling","later","learnr","lifecycle","limma","magrittr","markdown","methods","mime","munsell","pheatmap","pillar","pkgconfig","promises","purrr","R6","RColorBrewer","Rcpp","rlang","rmarkdown","rprojroot","scales","shiny","stats","stringi","stringr","tibble","tidyselect","tools","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.0.3","1.30.10","2.0-0","4.0.3","1.3.4","4.0.3","0.6.27","1.0.2","0.3.1","0.14","0.2.3.9037","0.0.1.9023","2.0.3","1.0.1","0.1.0","3.3.2","0.8.2","1.4.2","4.0.3","4.0.3","4.0.3","0.3.0","0.0.2.9000","0.5.0","1.5.2","1.5.4","1.7.1","1.30","0.4.2","1.1.0.1","0.10.1","0.2.0","3.46.0","1.5","1.1","4.0.3","0.9","0.5.0","1.0.12","1.4.6","2.0.3","1.1.1","0.3.4","2.5.0","1.1-2","1.0.5","0.4.8","2.5","2.0.2","1.1.1","1.5.0","4.0.3","1.5.3","1.4.0","3.0.4","1.1.0","4.0.3","4.0.3","0.3.4","2.3.0","0.19","1.8-4","2.2.1"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63]}},"value":[{"type":"character","attributes":{},"value":["base","BiocManager","colorspace","compiler","crayon","datasets","digest","dplyr","ellipsis","evaluate","ezlimma","ezlimmaplot","farver","fastmap","generics","ggplot2","ggrepel","glue","graphics","grDevices","grid","gtable","Hitman","htmltools","htmlwidgets","httpuv","jsonlite","knitr","labeling","later","learnr","lifecycle","limma","magrittr","markdown","methods","mime","munsell","pheatmap","pillar","pkgconfig","promises","purrr","R6","RColorBrewer","Rcpp","rlang","rmarkdown","rprojroot","scales","shiny","stats","stringi","stringr","tibble","tidyselect","tools","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.0.3","1.30.10","2.0-0","4.0.3","1.3.4","4.0.3","0.6.27","1.0.2","0.3.1","0.14","0.2.3.9037","0.0.1.9023","2.0.3","1.0.1","0.1.0","3.3.2","0.8.2","1.4.2","4.0.3","4.0.3","4.0.3","0.3.0","0.0.2.9000","0.5.0","1.5.2","1.5.4","1.7.1","1.30","0.4.2","1.1.0.1","0.10.1","0.2.0","3.46.0","2.0.1","1.1","4.0.3","0.9","0.5.0","1.0.12","1.4.7","2.0.3","1.1.1","0.3.4","2.5.0","1.1-2","1.0.5","0.4.9","2.5","2.0.2","1.1.1","1.5.0","4.0.3","1.5.3","1.4.0","3.0.4","1.1.0","4.0.3","4.0.3","0.3.5","2.3.0","0.19","1.8-4","2.2.1"]}]}]}
 </script>
 <!--/html_preserve-->
 </div>
