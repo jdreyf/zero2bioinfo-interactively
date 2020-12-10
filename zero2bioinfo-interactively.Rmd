@@ -28,6 +28,9 @@ You'd like to analyze and visualize your data. Your workflow will be the most fl
 ### Goal of tutorial
 Programming looks intimidating, but once you understand the basics, you should be able to Google questions, understand the answers, and be productive. I'll try to teach as much of the basics as I can in the hour I have to present this tutorial. You may wish to come back to it later to refresh and practice.
 
+### How this website works
+This site lets you edit and run code chunks to see how the output changes with your edits. Each code chunk is run independently and there are many of these, which can take a toll on memory, so sometimes there will be server errors and you may see errors like `object not defined` or `pandoc document conversion failed`. If this happens, please refresh the browser and rerun the code chunk.
+
 ## R & RStudio
 ### R
 - R is a free language and software for statistical computing and graphics  
